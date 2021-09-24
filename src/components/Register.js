@@ -1,5 +1,5 @@
 import React, {Component } from 'react';
-
+import { Link } from 'react-router-dom';
 export default class Register extends Component {
     handleSubmit = async e => {
         e.preventDefault();
@@ -23,6 +23,7 @@ export default class Register extends Component {
         });
         try {
             const data = await res.json();
+            return data;
         } catch(error) {
             console.log(error);
         }
@@ -53,7 +54,7 @@ export default class Register extends Component {
                                 <label className="text-red font-semibold lowercase">Avatar</label>
                                 <input type="url" name="avatar" className="border border-red rounded-lg" onChange={e => this.avatar = e.target.value} />
                             </div>
-                            <button className="bg-white rounded-lg text-red font-semibold w-2/3">S'inscrire</button>
+                            <Link className="bg-white rounded-lg text-red font-semibold w-2/3" to={'/'}>S'inscrire</Link>
                         </form>
                     </div>
                 </div>
