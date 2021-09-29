@@ -33,7 +33,7 @@ export default class Register extends Component {
         return <div className="container bg-white">
                     <div className="bg-pink rounded-lg m-3 h-auto flex flex-col items-center">
                     <h1 className="text-red font-semibold flex justify-center pt-3">Votre profil</h1>
-                        <form onSubmit={this.handleSubmit} className="flex flex-col justify-center space-y-3 m-4">
+                        <form className="flex flex-col justify-center space-y-3 m-4">
                             <div className="flex flex-row space-x-4 justify-center">
                                 <label className="text-red font-semibold lowercase">Email</label>
                                 <input type="email" name="email" className="border border-red rounded-lg" onChange={e => this.email = e.target.value} />
@@ -54,7 +54,8 @@ export default class Register extends Component {
                                 <label className="text-red font-semibold lowercase">Avatar</label>
                                 <input type="url" name="avatar" className="border border-red rounded-lg" onChange={e => this.avatar = e.target.value} />
                             </div>
-                            <Link className="bg-white rounded-lg text-red font-semibold w-2/3" to={'/'}>S'inscrire</Link>
+                            <Link className="bg-white rounded-lg text-red font-semibold w-2/3" onSubmit={this.handleSubmit}>S'inscrire</Link>
+                            <Link className="bg-white rounded-lg text-red font-semibold w-2/3" to={'/login'}>Se connecter</Link>
                         </form>
                     </div>
                 </div>

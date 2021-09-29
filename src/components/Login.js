@@ -33,7 +33,7 @@ export default class Login extends Component {
     render() {
         return <div className="container bg-white flex flex-col h-screen">
                     <div className="bg-pink rounded-lg m-3 h-auto flex flex-col items-center">
-                        <form onSubmit={this.handleSubmit}  className="flex flex-col justify-center space-y-3 m-5">
+                        <form onSubmit={this.handleSubmit} className="flex flex-col justify-center space-y-3 m-5">
                             <div className="flex flex-col space-x-4 justify-center">
                                 <label className="text-red font-semibold lowercase">Email</label>
                                 <input type="email" name="email" className="border border-red rounded-lg" onChange={e => this.email = e.target.value} />
@@ -42,7 +42,8 @@ export default class Login extends Component {
                                 <label className="text-red font-semibold lowercase">Mot de passe</label>
                                 <input type="password" name="password" className="border border-red rounded-lg" onChange={e => this.password = e.target.value} />
                             </div>
-                            <Link className="bg-white rounded-lg text-red font-semibold w-2/3" to={'/'}>Se connecter</Link>
+                            <button>Se connecter</button>
+                            <Link className="bg-white rounded-lg text-red font-semibold w-2/3" to={'/Forum'}>Forum</Link>
                         </form>
                     </div>
                 </div>
