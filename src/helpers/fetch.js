@@ -1,15 +1,17 @@
-export const customFetch = async (url, method, JSONvalue, shouldBeAuthenticated) => {
+export const customFetch = async (clientURLObject, JSONvalue) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(url, {
-            method: method,
+    console.log(JSONvalue)
+    const res = await fetch(clientURLObject.url, {
+            method: clientURLObject.method,
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            ...(shouldBeAuthenticated ? {"Authorization" : `Bearer ${token}`} : {}),
+            // ...(clientURLObject.shouldBeAuthenticated ? {"Authorization" : `Bearer ${token}`} : {}),
             },
             body: JSON.stringify(JSONvalue)
         });
-        try {
+        console.log(res)
+    try {
             return res.json();
         } catch(error) {
             console.log(error);
