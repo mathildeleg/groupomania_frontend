@@ -7,7 +7,7 @@ export const customFetch = async (clientURLObject, JSONvalue) => {
             'Content-Type': 'application/json',
             ...(clientURLObject.shouldBeAuthenticated ? {"Authorization" : `Bearer ${token}`} : {}),
             },
-            body: JSON.stringify(JSONvalue)
+            ...(clientURLObject.method === 'GET' || clientURLObject.method === 'DELETE' ? {} : {'body': JSON.stringify(JSONvalue)}),
         });
     try {
             return res.json();
