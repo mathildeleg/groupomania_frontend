@@ -4,15 +4,33 @@ import Button from '../components/Button'
 import InputEmail from '../components/form/InputEmail'
 import InputPassword from '../components/form/InputPassword'
 import { ClientURL } from '../helpers/clientURL'
+import TokenContext from '../helpers/TokenContext'
 import { customFetch } from '../helpers/fetch'
 
 export default class Login extends React.Component {
+    static contextType = TokenContext
+
+    componentDidMount() {
+        const token = localStorage.getItem('token')
+        this.loginAndNavigate(token)
+    }
+
+    loginAndNavigate = (token) => {
+        const { setToken } = this.context
+        if (token) {
+            setToken(token)
+            this.props.history.push('/forum')
+        }
+    }
+
     loginUser = async (data) => {
-        const dataToken = await customFetch(ClientURL.Auth.login,{
-            email: data.email, 
+        const { setToken } = this.context
+        const dataToken = await customFetch(ClientURL.Auth.login, {
+            email: data.email,
             password: data.password,
         })
-        localStorage.setItem("token", dataToken.token);
+        localStorage.setItem('token', dataToken.token)
+        this.loginAndNavigate(dataToken.token)
     }
 
     render() {
@@ -21,8 +39,8 @@ export default class Login extends React.Component {
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     onSubmit={(values, { setSubmitting }) => {
-                        this.loginUser(values);
-                        setSubmitting(false);
+                        this.loginUser(values)
+                        setSubmitting(false)
                     }}
                 >
                     {({
@@ -46,7 +64,11 @@ export default class Login extends React.Component {
                                 onBlur={handleBlur}
                                 value={values.password}
                             />
-                            <Button type="submit" text="Se connecter" color="pink" />
+                            <Button
+                                type="submit"
+                                text="Se connecter"
+                                color="pink"
+                            />
                         </form>
                     )}
                 </Formik>
