@@ -16,4 +16,7 @@ export const ClientURL = {
         login: urlHelper('auth/login', 'POST', false),
         register: urlHelper('auth/signup', 'POST', false)
     },
+    Forum: {
+        forum: urlHelper('forum/1/post', 'GET', true)
+    }
 }
