@@ -17,6 +17,6 @@ export const ClientURL = {
         register: urlHelper('auth/signup', 'POST', false)
     },
     Forum: {
-        forum: urlHelper('forum/1/post', 'GET', true)
+        forum: urlHelper('forum/1/post?start=0', 'GET', true)
     }
 }
