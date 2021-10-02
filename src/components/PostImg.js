@@ -20,9 +20,10 @@ function timeAgo(input) {
         }
     }
 }
-export default class Post extends React.Component {
+
+export default class PostImg extends React.Component {
     render() {
-        const { text, user, date, comments, likes } = this.props
+        const { text, user, date, comments, likes, image } = this.props
         const minutes = timeAgo(date)
 
         return (
@@ -32,7 +33,14 @@ export default class Post extends React.Component {
                         <div className="text-red">{user}</div>
                         <div className="text-xs lowercase">{minutes}</div>
                     </div>
-                    <div className="flex justify-center p-4">{text}</div>
+                    <div className="flex flex-col justify-center p-4">
+                        <img
+                            className="object-contain sm:object-scale-down"
+                            src={image}
+                            alt="postImage"
+                        />
+                        <div className="flex justify-center p-2">{text}</div>
+                    </div>
                     <div className="flex flex-row justify-between">
                         <div className="flex text-xs lowercase pl-4">
                             {comments} commentaire
