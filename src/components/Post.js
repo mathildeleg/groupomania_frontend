@@ -2,7 +2,7 @@ import React from 'react'
 import { timeAgo } from '../helpers/timeAgo'
 export default class Post extends React.Component {
     render() {
-        const { text, user, date, comments, likes, image } = this.props
+        const { text, user, date, comments, likes, image, commentsText } = this.props
         const minutes = timeAgo(date)
 
         return (
@@ -24,7 +24,7 @@ export default class Post extends React.Component {
                     </div>
                     <div className="flex flex-row justify-between">
                         <div className="flex text-xs lowercase pl-4">
-                            {comments} commentaire
+                            {comments} {commentsText}
                         </div>
                         <div className="flex text-xs pr-4">
                             {likes}{' '}

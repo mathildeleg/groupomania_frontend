@@ -19,6 +19,7 @@ class Forum extends React.Component {
     }
 
     render() {
+
         return (
             <div>
                 {this.state.post.map((post, index) => (
@@ -28,6 +29,7 @@ class Forum extends React.Component {
                         date={post.createdAt}
                         text={post.contentMessage}
                         comments={post.commentsCount}
+                        commentsText={post.commentsCount <= 1 ? 'commentaire' : 'commentaires'}
                         likes={post.likesCount}
                         image={post.contentImg}
                     />
