@@ -31,7 +31,7 @@ export default class PostImg extends React.Component {
                 <div className="container rounded-lg bg-white m-5 p-4">
                     <div className="flex flex-col justify-start pl-4">
                         <div className="text-red">{user}</div>
-                        <div className="text-xs lowercase">{minutes}</div>
+                        <div className="text-xs pl-8 lowercase">{minutes}</div>
                     </div>
                     <div className="flex flex-col justify-center p-4">
                         <img
