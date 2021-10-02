@@ -6,6 +6,7 @@ import InputPassword from '../components/form/InputPassword'
 import InputFirstName from '../components/form/InputFirstName'
 import InputLastName from '../components/form/InputLastName'
 import InputAvatar from '../components/form/InputAvatar'
+import Errors from '../components/form/Errors'
 import { ClientURL } from '../helpers/clientURL'
 import TokenContext from '../helpers/TokenContext'
 import { customFetch } from '../helpers/fetch'
@@ -35,7 +36,7 @@ export default class Register extends React.Component {
                 firstName: data.firstName,
                 lastName: data.lastName,
                 avatar: data.avatar,
-            }
+            },
         })
         console.log(dataToken)
         localStorage.setItem('token', dataToken.token)
@@ -44,66 +45,139 @@ export default class Register extends React.Component {
 
     render() {
         return (
-            <div className="container bg-white">
-                <div className="bg-pink rounded-lg m-3 h-auto flex flex-col items-center">
-                    <Formik
-                        initialValues={{
-                                email: '',
-                                password: '',
-                                firstName: '',
-                                lastName: '',
-                                avatar: '',
-                        }}
-                        onSubmit={(values, { setSubmitting }) => {
-                            this.registerUser(values)
-                            setSubmitting(false)
-                        }}
-                    >
-                        {({
-                            values,
-                            errors,
-                            touched,
-                            handleChange,
-                            handleBlur,
-                            handleSubmit,
-                            isSubmitting,
-                            /* and other goodies */
-                        }) => (
-                            <form onSubmit={handleSubmit}>
-                                <InputEmail
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.email}
+            <div className="bg-pink h-screen m-4 rounded-lg flex">
+                <Formik
+                    initialValues={{
+                        email: '',
+                        password: '',
+                        firstName: '',
+                        lastName: '',
+                        avatar: '',
+                    }}
+                    validate={(values) => {
+                        const errors = {}
+                        if (!values.email) {
+                            errors.email = (
+                                <Errors
+                                    errorText={'Veuillez remplir ce champs'}
                                 />
-                                <InputPassword
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.password}
+                            )
+                        } else if (
+                            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+                                values.email
+                            )
+                        ) {
+                            errors.email = (
+                                <Errors
+                                    errorText={'Adresse email non valide'}
                                 />
-                                <InputFirstName
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.firstName}
+                            )
+                        }
+                        if (!values.password) {
+                            errors.password = (
+                                <Errors
+                                    errorText={'Veuillez remplir ce champs'}
                                 />
-                                <InputLastName
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.lastName}
+                            )
+                        } else if (
+                            !/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/i.test(
+                                values.password
+                            )
+                        ) {
+                            errors.password = (
+                                <Errors errorText={'Mot de passe non valide'} />
+                            )
+                        }
+                        if (!values.firstName) {
+                            errors.firstName = (
+                                <Errors
+                                    errorText={'Veuillez remplir ce champs'}
                                 />
-                                <InputAvatar
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.avatar}
+                            )
+                        } else if (
+                            !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,20}$/i.test(
+                                values.firstName
+                            )
+                        ) {
+                            errors.firstName = (
+                                <Errors errorText={'Prénom non valide'} />
+                            )
+                        }
+                        if (!values.lastName) {
+                            errors.lastName = (
+                                <Errors
+                                    errorText={'Veuillez remplir ce champs'}
                                 />
+                            )
+                        } else if (
+                            !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,20}$/i.test(
+                                values.lastName
+                            )
+                        ) {
+                            errors.lastName = (
+                                <Errors errorText={'Nom non valide'} />
+                            )
+                        }
+                        return errors
+                    }}
+                    onSubmit={(values, { setSubmitting }) => {
+                        this.registerUser(values)
+                        setSubmitting(false)
+                    }}
+                >
+                    {({
+                        values,
+                        errors,
+                        touched,
+                        handleChange,
+                        handleBlur,
+                        handleSubmit,
+                        isSubmitting,
+                        /* and other goodies */
+                    }) => (
+                        <form
+                            className="flex flex-col justify-center w-screen p-4"
+                            onSubmit={handleSubmit}
+                        >
+                            <InputEmail
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.email}
+                            />
+                            {errors.email && touched.email && errors.email}
+                            <InputPassword
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.password}
+                            />
+                            {errors.password && touched.password && errors.password}
+                            <InputFirstName
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.firstName}
+                            />
+                            {errors.firstName && touched.firstName && errors.firstName}
+                            <InputLastName
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.lastName}
+                            />
+                            {errors.lastName && touched.lastName && errors.lastName}
+                            <InputAvatar
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.avatar}
+                            />
+                            <div className="flex justify-center">
                                 <Button
                                     type="submit"
                                     text="S'inscrire"
-                                    color="white"
+                                    color="red"
                                 />
-                            </form>
-                        )}
-                    </Formik>
-                </div>
+                            </div>
+                        </form>
+                    )}
+                </Formik>
             </div>
         )
     }
