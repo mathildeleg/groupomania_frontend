@@ -1,28 +1,8 @@
 import React from 'react'
-
-function timeAgo(input) {
-    const date = input instanceof Date ? input : new Date(input)
-    const formatter = new Intl.RelativeTimeFormat('fr')
-    const ranges = {
-        years: 3600 * 24 * 365,
-        months: 3600 * 24 * 30,
-        weeks: 3600 * 24 * 7,
-        days: 3600 * 24,
-        hours: 3600,
-        minutes: 60,
-        seconds: 1,
-    }
-    const secondsElapsed = (date.getTime() - Date.now()) / 1000
-    for (let key in ranges) {
-        if (ranges[key] < Math.abs(secondsElapsed)) {
-            const delta = secondsElapsed / ranges[key]
-            return formatter.format(Math.round(delta), key)
-        }
-    }
-}
+import { timeAgo } from '../helpers/timeAgo'
 export default class Post extends React.Component {
     render() {
-        const { text, user, date, comments, likes } = this.props
+        const { text, user, date, comments, likes, image } = this.props
         const minutes = timeAgo(date)
 
         return (
@@ -32,7 +12,16 @@ export default class Post extends React.Component {
                         <div className="text-red">{user}</div>
                         <div className="text-xs pl-8 lowercase">{minutes}</div>
                     </div>
-                    <div className="flex justify-center p-4">{text}</div>
+                    <div className="flex flex-col justify-center p-4">
+                        {image ? (
+                            <img
+                                className="object-contain sm:object-scale-down"
+                                src={image}
+                                alt="postImage"
+                            />
+                        ) : null}
+                        <div className="flex justify-center p-2">{text}</div>
+                    </div>
                     <div className="flex flex-row justify-between">
                         <div className="flex text-xs lowercase pl-4">
                             {comments} commentaire
