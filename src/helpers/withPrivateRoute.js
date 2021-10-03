@@ -11,10 +11,9 @@ export default function withPrivateRoute(WrappedComponent) {
             const { children, ...otherProps } = this.props;
             return (
                 <Route
-                    {...otherProps}
                     render={({ location }) =>
                         token ? (
-                            <WrappedComponent/>
+                            <WrappedComponent {...otherProps} />
                         ) : (
                             <Redirect
                                 to={{
