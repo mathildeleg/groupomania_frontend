@@ -8,15 +8,17 @@ const urlHelper = (suffixURL, method, shouldBeAuthenticated) => {
                 return 'http://localhost:3000/';
         }
     })()
-    return { url : url + 'api/' + suffixURL, method, shouldBeAuthenticated};
+    return { url : url + 'api/' + suffixURL, method, shouldBeAuthenticated };
 }
 
 export const ClientURL = {
     Auth: {
-        login: urlHelper('auth/login', 'POST', false),
-        register: urlHelper('auth/signup', 'POST', false)
+        login: () => urlHelper('auth/login', 'POST', false),
+        register: () => urlHelper('auth/signup', 'POST', false)
     },
     Forum: {
-        forum: urlHelper('forum/1/post?start=0', 'GET', true)
+        forum: () => urlHelper('forum/1/post?start=0', 'GET', true),
+        post: (id) => urlHelper(`forum/1/post/${id}`, 'GET', true),
+        comment: (id) => urlHelper(`forum/1/post/${id}/comment`, 'GET', true),
     }
 }
