@@ -26,7 +26,7 @@ export default class Login extends React.Component {
 
     loginUser = async (data) => {
         // const { setToken } = this.context
-        const dataToken = await customFetch(ClientURL.Auth.login, {
+        const dataToken = await customFetch(ClientURL.Auth.login(), {
             email: data.email,
             password: data.password,
         })

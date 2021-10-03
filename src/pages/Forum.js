@@ -10,7 +10,7 @@ class Forum extends React.Component {
     }
 
     fetchPosts = async () => {
-        const post = await customFetch(ClientURL.Forum.forum)
+        const post = await customFetch(ClientURL.Forum.forum())
         this.setState({ post })
     }
 
@@ -19,7 +19,6 @@ class Forum extends React.Component {
     }
 
     render() {
-
         return (
             <div>
                 {this.state.post.map((post, index) => (
@@ -32,6 +31,7 @@ class Forum extends React.Component {
                         commentsText={post.commentsCount <= 1 ? 'commentaire' : 'commentaires'}
                         likes={post.likesCount}
                         image={post.contentImg}
+                        postId={post.postId}
                     />
                 ))}
             </div>
