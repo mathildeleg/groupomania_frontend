@@ -33,18 +33,21 @@ export default class Post extends React.Component {
                         <div className="flex justify-center p-2">{text}</div>
                     </div>
                     <div className="flex flex-row justify-between">
-                        {
-                            comments ? ( <Link
-                            to={`/forum/post/${postId}/comment`}
-                            className="flex text-xs lowercase pl-4"
-                        >
-                            {comments} {commentsText}
-                        </Link> ) : <div
-                            className="flex text-xs lowercase pl-4"
-                        >
-                            {comments} {commentsText}
-                        </div>
-                        }
+                        {comments ? (
+                            <Link
+                                to={`/forum/post/${postId}/comment`}
+                                className="flex text-xs lowercase pl-4"
+                            >
+                                {comments} {commentsText}
+                            </Link>
+                        ) : (
+                            <Link
+                                to={`/forum/post/${postId}/newcomment`}
+                                className="flex text-xs lowercase pl-4"
+                            >
+                                ajouter un commentaire
+                            </Link>
+                        )}
                         <div className="flex text-xs pr-4">
                             {likes}{' '}
                             <svg
