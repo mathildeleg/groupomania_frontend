@@ -16,6 +16,7 @@ class AddComment extends React.Component {
                 commentMessage: data.commentMessage,
             }
         )
+        this.props.history.push(`/forum/post/${id}/comment`)
         return createComment
     }
 
