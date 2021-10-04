@@ -7,7 +7,7 @@ export default class Comment extends React.Component {
         const minutes = timeAgo(date)
 
         return (
-            <div className="container flex bg-pink justify-end">
+            <div className="flex bg-pink justify-end">
                 <div className="container rounded-xl bg-white w-3/4 m-5 p-4">
                     <div className="flex flex-row justify-center p-3">
                         <div className="flex pl-4">
