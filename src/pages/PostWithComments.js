@@ -5,6 +5,7 @@ import Comment from '../components/Comment'
 import { ClientURL } from '../helpers/clientURL'
 import { customFetch } from '../helpers/fetch'
 import withPrivateRoute from '../helpers/withPrivateRoute'
+import LinkButton from '../components/LinkButton'
 
 class PostWithComments extends React.Component {
     state = {
@@ -30,9 +31,8 @@ class PostWithComments extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         return (
-            <div>
+            <div className="container h-full bg-pink">
                 {this.state.post ? 
                     <Post
                         user={this.state.post.author}
@@ -58,6 +58,7 @@ class PostWithComments extends React.Component {
                         date={comment.createdAt}
                     />
                 ))}
+                <LinkButton to={`/forum/post/${this.props.match.params.postId}/newcomment`} text="Ajouter un commentaire" color='red' otherProps='text-white flex justify-center'/>
             </div>
         )
     }
