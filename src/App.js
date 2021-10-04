@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Forum from './pages/Forum'
 import Register from './pages/Register'
 import AddComment from './pages/AddComment'
+import AddPost from './pages/AddPost'
 import PostWithComments from './pages/PostWithComments'
 import { TokenProvider } from './helpers/TokenContext'
 import React from 'react'
@@ -28,6 +29,10 @@ class App extends React.Component {
                             <Route
                                 exact path="/forum"
                                 component={Forum}
+                            ></Route>
+                            <Route
+                                exact path="/forum/post"
+                                component={AddPost}
                             ></Route>
                             <Route
                                 exact path="/forum/post/:postId/comment"
