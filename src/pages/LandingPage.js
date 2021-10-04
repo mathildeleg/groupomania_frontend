@@ -6,8 +6,8 @@ export default class LandingPage extends React.Component {
     render() {
       return (
         <div>
-          <LinkButton to='/login' text="Se connecter" color='pink'/>
-          <LinkButton to='/register' text="S'inscrire" color='pink'/>
+          <LinkButton to='/login' text="Se connecter" color='pink' otherProps='text-red'/>
+          <LinkButton to='/register' text="S'inscrire" color='pink' otherProps='text-red'/>
         </div>
       );
     }

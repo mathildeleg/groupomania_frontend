@@ -14,11 +14,11 @@ export default class LinkButton extends React.Component {
     }
 
     render() {
-        const { to, text } = this.props
+        const { to, text, otherProps } = this.props
         return (
             <Link
                 to={to}
-                className={`${this.getColor()} rounded-xl text-red text-center font-semibold px-5 py-2 m-2`}
+                className={`${this.getColor()} rounded-xl text-center font-semibold px-5 py-2 m-2 ${otherProps}`}
             >
                 {text}
             </Link>
