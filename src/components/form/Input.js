@@ -3,7 +3,7 @@ import React from "react";
 export default class Input extends React.Component {
 
     render() {
-        const { label, type, name, ...otherProps } = this.props;
+      const { label, type, name, ...otherProps } = this.props;
         
       return (
         <div className="flex flex-col space-x-4 justify-center p-4">

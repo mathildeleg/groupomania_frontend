@@ -13,7 +13,7 @@ class AddComment extends React.Component {
         const createComment = await customFetch(
             ClientURL.Forum.addComment(id),
             {
-                commentMessage: data.commentMessage,
+                commentMessage: data.comment,
             }
         )
         this.props.history.push(`/forum/post/${id}/comment`)
@@ -24,21 +24,21 @@ class AddComment extends React.Component {
         return (
             <div className="bg-pink m-4 rounded-lg flex">
                 <Formik
-                    initialValues={{ commentMessage: '' }}
+                    initialValues={{ comment: '' }}
                     validate={(values) => {
                         const errors = {}
-                        if (!values.commentMessage) {
-                            errors.commentMessage = (
+                        if (!values.comment) {
+                            errors.comment = (
                                 <Errors
                                     errorText={'Veuillez remplir ce champs'}
                                 />
                             )
                         } else if (
                             !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,150}$/i.test(
-                                values.commentMessage
+                                values.comment
                             )
                         ) {
-                            errors.commentMessage = (
+                            errors.comment = (
                                 <Errors
                                     errorText={'Commentaire non valide'}
                                 />
@@ -67,9 +67,9 @@ class AddComment extends React.Component {
                             <InputComment
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                value={values.commentMessage}
+                                value={values.comment}
                             />
-                            {errors.commentMessage && touched.commentMessage && errors.commentMessage}
+                            {errors.comment && touched.comment && errors.comment}
                             <div className="flex justify-center pt-8">
                                 <Button
                                     type="submit"
