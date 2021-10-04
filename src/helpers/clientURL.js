@@ -20,5 +20,6 @@ export const ClientURL = {
         forum: () => urlHelper('forum/1/post?start=0', 'GET', true),
         post: (id) => urlHelper(`forum/1/post/${id}`, 'GET', true),
         comment: (id) => urlHelper(`forum/1/post/${id}/comment`, 'GET', true),
+        addComment: (id) => urlHelper(`forum/1/post/${id}/comment`, 'POST', true),
     }
 }
