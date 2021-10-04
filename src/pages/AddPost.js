@@ -5,13 +5,14 @@ import { ClientURL } from '../helpers/clientURL'
 import withPrivateRoute from '../helpers/withPrivateRoute'
 import InputPost from '../components/form/InputPost'
 import InputImage from '../components/form/InputImage'
+import Button from '../components/Button'
 // import Errors from '../components/form/Errors'
 
 class AddPost extends React.Component {
     addPost = async (data) => {
         const createPost = await customFetch(ClientURL.Forum.addPost(), {
-            postMessage: data.postMessage,
-            imagePath: data.imagePath,
+            postMessage: data.post,
+            imagePath: data.image,
         })
         this.props.history.push('/forum')
         return createPost
@@ -21,7 +22,7 @@ class AddPost extends React.Component {
         return (
             <div className="bg-pink m-4 rounded-lg flex">
                 <Formik
-                    initialValues={{ postMessage: '', imagePath: '' }}
+                    initialValues={{ post: '', image: '' }}
                     onSubmit={(values, { setSubmitting }) => {
                         this.addPost(values)
                         setSubmitting(false)
@@ -43,21 +44,20 @@ class AddPost extends React.Component {
                             <InputPost
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                value={values.postMessage}
+                                value={values.post}
                             />
                             <InputImage
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                value={values.imagePath}
+                                value={values.image}
                             />
                             <div className="flex justify-center pt-8">
-                                <button
-                                    disabled={isSubmitting}
+                                <Button
                                     type="submit"
-                                    className={`bg-white rounded-xl text-red bg-red text-center font-semibold px-5 py-2 m-2`}
-                                >
-                                    Publier
-                                </button>
+                                    text="Publier"
+                                    color="pink"
+                                    disabled={isSubmitting}
+                                />
                             </div>
                         </form>
                     )}

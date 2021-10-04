@@ -22,6 +22,7 @@ class PostWithComments extends React.Component {
     fetchComments = async () => {
         const id = this.props.match.params.postId
         const comment = await customFetch(ClientURL.Forum.comment(id))
+        console.log(comment)
         this.setState({ comment })
     }
 
@@ -31,6 +32,7 @@ class PostWithComments extends React.Component {
     }
 
     render() {
+        const postId = this.props.match.params.postId
         return (
             <div className="container h-full bg-pink">
                 {this.state.post ? 
@@ -58,7 +60,7 @@ class PostWithComments extends React.Component {
                         date={comment.createdAt}
                     />
                 ))}
-                <LinkButton to={`/forum/post/${this.props.match.params.postId}/newcomment`} text="Ajouter un commentaire" color='red' otherProps='text-white flex justify-center'/>
+                <LinkButton to={`/forum/post/${postId}/newcomment`} text="Ajouter un commentaire" color='red' otherProps='text-white flex justify-center'/>
             </div>
         )
     }
