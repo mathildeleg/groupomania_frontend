@@ -3,6 +3,7 @@ import { customFetch } from '../../helpers/fetch'
 import { ClientURL } from '../../helpers/clientURL'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
 import Comment from '../../components/Comment'
+import { Link } from 'react-router-dom'
 
 
 class DeleteComment extends React.Component {
@@ -30,6 +31,8 @@ class DeleteComment extends React.Component {
     }
 
     render() {
+        const id = this.props.match.params.postId
+        const commentId = this.props.match.params.commentId
         return (
             <div className="bg-pink m-4 rounded-lg flex"> 
                 {this.state.comment ? 
@@ -40,6 +43,7 @@ class DeleteComment extends React.Component {
                     />
                 : null
                 }
+                <Link to={`/forum/post/${id}/updatecomment/${commentId}`}>Modifier</Link>
                 <button onClick={this.deleteComment}>Supprimer</button>
             </div>
         )

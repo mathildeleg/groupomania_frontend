@@ -6,24 +6,24 @@ import { ClientURL } from '../../helpers/clientURL'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
 import InputComment from '../../components/form/InputComment'
 import Errors from '../../components/form/Errors'
+// import Comment from '../../components/Comment'
 
-class AddComment extends React.Component {
-    addComment = async (data) => {
+
+class UpdateComment extends React.Component {
+    updateComment = async (data) => {
         const id = this.props.match.params.postId
-        const createComment = await customFetch(
-            ClientURL.Forum.addComment(id),
+        const commentId = this.props.match.params.commentId
+        const updatedComment = await customFetch(ClientURL.Forum.updateComment(id, commentId),
             {
                 commentMessage: data.comment,
-                postId: data.postId
-            }
-        )
-        this.props.history.push(`/forum/post/${id}/comment`)
-        return createComment
+            })
+        this.props.history.push(`/forum/post/${id}/comment/${commentId}`)
+        return updatedComment
     }
 
     render() {
         return (
-            <div className="bg-pink m-4 rounded-lg flex">
+            <div className="bg-pink m-4 rounded-lg flex"> 
                 <Formik
                     initialValues={{ comment: '' }}
                     validate={(values) => {
@@ -48,7 +48,7 @@ class AddComment extends React.Component {
                         return errors
                     }}
                     onSubmit={(values, { setSubmitting }) => {
-                        this.addComment(values)
+                        this.updateComment(values)
                         setSubmitting(false)
                     }}
                 >
@@ -74,7 +74,7 @@ class AddComment extends React.Component {
                             <div className="flex justify-center pt-8">
                                 <Button
                                     type="submit"
-                                    text="Publier le commentaire"
+                                    text="Modifier le commentaire"
                                     color="pink"
                                     disabled={isSubmitting}
                                 />
@@ -87,4 +87,4 @@ class AddComment extends React.Component {
     }
 }
 
-export default withPrivateRoute(AddComment)
+export default withPrivateRoute(UpdateComment)
