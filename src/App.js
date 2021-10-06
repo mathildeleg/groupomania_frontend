@@ -10,6 +10,7 @@ import DeleteComment from './pages/Comments/DeleteComment'
 import { TokenProvider } from './helpers/TokenContext'
 import React from 'react'
 import UpdateComment from './pages/Comments/UpdateComment'
+import UpdatePost from './pages/Posts/UpdatePost'
 class App extends React.Component {
     render() {
         return (
@@ -35,6 +36,10 @@ class App extends React.Component {
                             <Route
                                 exact path="/forum/post"
                                 component={AddPost}
+                            ></Route>
+                            <Route
+                                exact path="/forum/post/:postId"
+                                component={UpdatePost}
                             ></Route>
                             <Route
                                 exact path="/forum/post/:postId/comment"

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { timeAgo } from '../helpers/timeAgo'
+import LinkButton from './LinkButton'
+
 export default class Post extends React.Component {
     render() {
         const {
@@ -17,7 +19,7 @@ export default class Post extends React.Component {
 
         return (
             <div className="container flex bg-pink">
-                <div className="container rounded-xl bg-white m-5 p-4">
+                <div className="container flex flex-col rounded-xl bg-white m-5 p-4">
                     <div className="flex flex-col justify-start pl-4">
                         <div className="text-red">{user}</div>
                         <div className="text-xs pl-8 lowercase">{minutes}</div>
@@ -65,6 +67,9 @@ export default class Post extends React.Component {
                                 />
                             </svg>
                         </div>
+                    </div>
+                    <div className='flex justify-center'>
+                        <LinkButton to={`/forum/post/${postId}`} text='Modifier'/>
                     </div>
                 </div>
             </div>
