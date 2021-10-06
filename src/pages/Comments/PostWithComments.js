@@ -1,11 +1,11 @@
 import React from 'react'
 import { withRouter } from 'react-router'
-import Post from '../components/Post'
-import Comment from '../components/Comment'
-import { ClientURL } from '../helpers/clientURL'
-import { customFetch } from '../helpers/fetch'
-import withPrivateRoute from '../helpers/withPrivateRoute'
-import LinkButton from '../components/LinkButton'
+import Post from '../../components/Post'
+import Comment from '../../components/Comment'
+import { ClientURL } from '../../helpers/clientURL'
+import { customFetch } from '../../helpers/fetch'
+import withPrivateRoute from '../../helpers/withPrivateRoute'
+import LinkButton from '../../components/LinkButton'
 
 class PostWithComments extends React.Component {
     state = {
@@ -22,7 +22,6 @@ class PostWithComments extends React.Component {
     fetchComments = async () => {
         const id = this.props.match.params.postId
         const comment = await customFetch(ClientURL.Forum.comment(id))
-        console.log(comment)
         this.setState({ comment })
     }
 
@@ -58,6 +57,8 @@ class PostWithComments extends React.Component {
                         author={comment.author}
                         comment={comment.commentMessage}
                         date={comment.createdAt}
+                        postId={comment.postId}
+                        commentId={comment.commentId}
                     />
                 ))}
                 <LinkButton to={`/forum/post/${postId}/newcomment`} text="Ajouter un commentaire" color='red' otherProps='text-white flex justify-center'/>

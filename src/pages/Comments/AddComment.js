@@ -1,11 +1,11 @@
 import { Formik } from 'formik'
 import React from 'react'
-import Button from '../components/Button'
-import { customFetch } from '../helpers/fetch'
-import { ClientURL } from '../helpers/clientURL'
-import withPrivateRoute from '../helpers/withPrivateRoute'
-import InputComment from '../components/form/InputComment'
-import Errors from '../components/form/Errors'
+import Button from '../../components/Button'
+import { customFetch } from '../../helpers/fetch'
+import { ClientURL } from '../../helpers/clientURL'
+import withPrivateRoute from '../../helpers/withPrivateRoute'
+import InputComment from '../../components/form/InputComment'
+import Errors from '../../components/form/Errors'
 
 class AddComment extends React.Component {
     addComment = async (data) => {
