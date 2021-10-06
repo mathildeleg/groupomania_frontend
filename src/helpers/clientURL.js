@@ -22,5 +22,7 @@ export const ClientURL = {
         comment: (id) => urlHelper(`forum/1/post/${id}/comment`, 'GET', true),
         addComment: (id) => urlHelper(`forum/1/post/${id}/comment`, 'POST', true),
         addPost: () => urlHelper(`forum/1/post`, 'POST', true),
+        fetchOneComment: (id, commentId) => urlHelper(`forum/1/post/${id}/comment/${commentId}`, 'GET', true),
+        deleteComment: (id, commentId) => urlHelper(`forum/1/post/${id}/comment/${commentId}`, 'DELETE', true)
     }
 }

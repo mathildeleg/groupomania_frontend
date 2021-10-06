@@ -3,9 +3,10 @@ import LandingPage from './pages/LandingPage'
 import Login from './pages/Login'
 import Forum from './pages/Forum'
 import Register from './pages/Register'
-import AddComment from './pages/AddComment'
+import AddComment from './pages//Comments/AddComment'
 import AddPost from './pages/AddPost'
-import PostWithComments from './pages/PostWithComments'
+import PostWithComments from './pages/Comments/PostWithComments'
+import DeleteComment from './pages/Comments/DeleteComment'
 import { TokenProvider } from './helpers/TokenContext'
 import React from 'react'
 class App extends React.Component {
@@ -41,6 +42,10 @@ class App extends React.Component {
                             <Route
                                 exact path="/forum/post/:postId/newcomment"
                                 component={AddComment}
+                            ></Route>
+                            <Route
+                                exact path="/forum/post/:postId/comment/:commentId"
+                                component={DeleteComment}
                             ></Route>
                         </TokenProvider>
                     </Switch>
