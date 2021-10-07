@@ -10,7 +10,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 export default class NavBar extends React.Component {
     render() {
         return (
-            <div className="bg-white h-screen m-3 pt-14 flex flex-col content-center w-8 rounded-lg">
+            <div className="bg-white h-screen overflow-hidden m-3 pt-14 flex flex-col content-center w-8 rounded-lg">
                 {/* <img src='' alt='logo'/> */}
                 <div className="flex flex-col">
                     <Link to={'/forum'}>

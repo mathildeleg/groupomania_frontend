@@ -6,6 +6,7 @@ import { ClientURL } from '../../helpers/clientURL'
 import { customFetch } from '../../helpers/fetch'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
 import LinkButton from '../../components/LinkButton'
+import NavBar from '../../components/NavBar'
 
 class PostWithComments extends React.Component {
     state = {
@@ -33,35 +34,44 @@ class PostWithComments extends React.Component {
     render() {
         const postId = this.props.match.params.postId
         return (
-            <div className="container h-full bg-pink">
-                {this.state.post ? 
-                    <Post
-                        user={this.state.post.author}
-                        date={this.state.post.createdAt}
-                        text={this.state.post.contentMessage}
-                        comments={this.state.post.commentsCount}
-                        commentsText={
-                            this.state.post.commentsCount <= 1
-                                ? 'commentaire'
-                                : 'commentaires'
-                        }
-                        likes={this.state.post.likesCount}
-                        image={this.state.post.contentImg}
-                        postId={this.state.post.postId}
-                    />
-                    : null
-                }
-                {this.state.comment.map((comment, index) => (
-                    <Comment
-                        key={`comment_${index}`}
-                        author={comment.author}
-                        comment={comment.commentMessage}
-                        date={comment.createdAt}
-                        postId={comment.postId}
-                        commentId={comment.commentId}
-                    />
-                ))}
-                <LinkButton to={`/forum/post/${postId}/newcomment`} text="Ajouter un commentaire" color='red' otherProps='text-white flex justify-center'/>
+            <div className="container h-auto bg-pink">
+                <div className="flex flex-row">
+                    <NavBar />
+                    <div className="flex flex-col flex-auto">
+                        {this.state.post ? (
+                            <Post
+                                user={this.state.post.author}
+                                date={this.state.post.createdAt}
+                                text={this.state.post.contentMessage}
+                                comments={this.state.post.commentsCount}
+                                commentsText={
+                                    this.state.post.commentsCount <= 1
+                                        ? 'commentaire'
+                                        : 'commentaires'
+                                }
+                                likes={this.state.post.likesCount}
+                                image={this.state.post.contentImg}
+                                postId={this.state.post.postId}
+                            />
+                        ) : null}
+                        {this.state.comment.map((comment, index) => (
+                            <Comment
+                                key={`comment_${index}`}
+                                author={comment.author}
+                                comment={comment.commentMessage}
+                                date={comment.createdAt}
+                                postId={comment.postId}
+                                commentId={comment.commentId}
+                            />
+                        ))}
+                        <LinkButton
+                            to={`/forum/post/${postId}/newcomment`}
+                            text="Ajouter un commentaire"
+                            color="red"
+                            otherProps="text-white flex justify-center"
+                        />
+                    </div>
+                </div>
             </div>
         )
     }
