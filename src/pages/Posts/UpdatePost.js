@@ -20,12 +20,12 @@ class UpdatePost extends React.Component {
         return updatedComment
     }
 
-    // deletePost = async () => {
-    //     const id = this.props.match.params.postId
-    //     const deletePost = await customFetch(ClientURL.Forum.deletePost(id))
-    //     // this.props.history.push(`/forum`)
-    //     return deletePost
-    // }
+    deletePost = async () => {
+        const id = this.props.match.params.postId
+        const deletePost = await customFetch(ClientURL.Forum.deletePost(id))
+        this.props.history.push(`/forum`)
+        return deletePost
+    }
 
     render() {
         return (
