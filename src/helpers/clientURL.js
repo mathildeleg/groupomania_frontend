@@ -25,7 +25,7 @@ export const ClientURL = {
         fetchOneComment: (id, commentId) => urlHelper(`forum/1/post/${id}/comment/${commentId}`, 'GET', true),
         deleteComment: (id, commentId) => urlHelper(`forum/1/post/${id}/comment/${commentId}`, 'DELETE', true),
         updateComment: (id, commentId) => urlHelper(`forum/1/post/${id}/comment/${commentId}`, 'PUT', true),
-        // deletePost: (id) => urlHelper(`forum/1/post/${id}/comment`, 'DELETE', true),
+        deletePost: (id) => urlHelper(`forum/1/post/${id}`, 'DELETE', true),
         updatePost: (id) => urlHelper(`forum/1/post/${id}`, 'PUT', true),
     
 
