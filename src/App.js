@@ -11,6 +11,7 @@ import { TokenProvider } from './helpers/TokenContext'
 import React from 'react'
 import UpdateComment from './pages/Comments/UpdateComment'
 import UpdatePost from './pages/Posts/UpdatePost'
+import GetProfile from './pages/Profile/GetProfile'
 class App extends React.Component {
     render() {
         return (
@@ -28,6 +29,10 @@ class App extends React.Component {
                             <Route
                                 exact path="/register"
                                 component={Register}
+                            ></Route>
+                            <Route
+                                exact path="/profile/:profileId"
+                                component={GetProfile}
                             ></Route>
                             <Route
                                 exact path="/forum"

@@ -11,7 +11,7 @@ export default class NavBar extends React.Component {
     render() {
         return (
             <div className="bg-white h-screen overflow-hidden m-3 pt-14 flex flex-col content-center w-8 rounded-lg">
-                {/* <img src='' alt='logo'/> */}
+                {/* <img src='../src/icon.png' alt='logo'/> */}
                 <div className="flex flex-col">
                     <Link to={'/forum'}>
                         <FontAwesomeIcon
@@ -19,7 +19,7 @@ export default class NavBar extends React.Component {
                             className="text-pink hover:text-red visited:text-red text-2xl m-0.5"
                         />
                     </Link>
-                    <Link>
+                    <Link to={`/profile/me`}>
                         <FontAwesomeIcon
                             icon={faCog}
                             className="text-pink hover:text-red visited:text-red text-2xl m-1"
@@ -27,25 +27,25 @@ export default class NavBar extends React.Component {
                     </Link>
                 </div>
                 <div className="flex flex-col p-1.5 pt-16">
-                    <Link>
+                    <button>
                         <FontAwesomeIcon
                             icon={faArrowLeft}
                             className="text-pink hover:text-red visited:text-red text-2xl"
                         />
-                    </Link>
-                    <Link>
+                    </button>
+                    <button>
                         <FontAwesomeIcon
                             icon={faArrowRight}
                             className="text-pink hover:text-red visited:text-red text-2xl"
                         />
-                    </Link>
+                    </button>
                 </div>
-                <Link>
+                <button>
                     <FontAwesomeIcon
                         icon={faSignOutAlt}
                         className="text-pink hover:text-red visited:text-red text-2xl m-1"
                     />
-                </Link>
+                </button>
             </div>
         )
     }

@@ -16,6 +16,9 @@ export const ClientURL = {
         login: () => urlHelper('auth/login', 'POST', false),
         register: () => urlHelper('auth/signup', 'POST', false)
     },
+    User: {
+        profile: () => urlHelper(`profile/me`, 'GET', true),
+    },
     Forum: {
         forum: () => urlHelper('forum/1/post?start=0', 'GET', true),
         post: (id) => urlHelper(`forum/1/post/${id}`, 'GET', true),
@@ -27,7 +30,5 @@ export const ClientURL = {
         updateComment: (id, commentId) => urlHelper(`forum/1/post/${id}/comment/${commentId}`, 'PUT', true),
         deletePost: (id) => urlHelper(`forum/1/post/${id}`, 'DELETE', true),
         updatePost: (id) => urlHelper(`forum/1/post/${id}`, 'PUT', true),
-    
-
     }
 }
