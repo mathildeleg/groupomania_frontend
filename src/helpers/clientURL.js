@@ -18,6 +18,7 @@ export const ClientURL = {
     },
     User: {
         profile: () => urlHelper(`profile/me`, 'GET', true),
+        deleteProfile: () => urlHelper(`profile/me/delete`, 'DELETE', true),
     },
     Forum: {
         forum: () => urlHelper('forum/1/post?start=0', 'GET', true),
