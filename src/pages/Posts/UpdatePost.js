@@ -30,7 +30,7 @@ class UpdatePost extends React.Component {
 
     render() {
         return (
-            <div className="bg-pink m-4 rounded-lg flex flex-col">
+            <div className="bg-pink m-4 p-2 rounded-lg flex flex-col">
                 <div>
                     <Formik
                         initialValues={{ post: '' }}
@@ -68,7 +68,7 @@ class UpdatePost extends React.Component {
                             isSubmitting,
                         }) => (
                             <form
-                                className="flex flex-col justify-center w-screen p-4"
+                                className="flex flex-col justify-center p-4"
                                 onSubmit={handleSubmit}
                             >
                                 <InputPost
