@@ -15,40 +15,26 @@ export default class NavBar extends React.Component {
         return (
             <div className="bg-white h-screen overflow-hidden m-3 pt-14 flex flex-col content-center w-8 rounded-lg">
                 {/* <img src='../src/icon.png' alt='logo'/> */}
-                <div className="flex flex-col">
-                    <Link to={'/forum'}>
-                        <FontAwesomeIcon
-                            icon={faImages}
-                            className="text-pink hover:text-red visited:text-red text-2xl m-0.5"
-                        />
-                    </Link>
+                <Link to={'/forum'}>
+                    <FontAwesomeIcon
+                        icon={faImages}
+                        className="text-pink hover:text-red visited:text-red text-2xl m-0.5"
+                    />
+                </Link>
+                <div className="mt-16">
                     <Link to={`/profile/me`}>
                         <FontAwesomeIcon
                             icon={faCog}
                             className="text-pink hover:text-red visited:text-red text-2xl m-1"
                         />
                     </Link>
-                </div>
-                <div className="flex flex-col p-1.5 pt-16">
-                    <button>
+                    <button onClick={this.logOut}>
                         <FontAwesomeIcon
-                            icon={faArrowLeft}
-                            className="text-pink hover:text-red visited:text-red text-2xl"
-                        />
-                    </button>
-                    <button>
-                        <FontAwesomeIcon
-                            icon={faArrowRight}
-                            className="text-pink hover:text-red visited:text-red text-2xl"
+                            icon={faSignOutAlt}
+                            className="text-pink hover:text-red visited:text-red text-2xl m-1"
                         />
                     </button>
                 </div>
-                <button onClick={this.logOut}>
-                    <FontAwesomeIcon
-                        icon={faSignOutAlt}
-                        className="text-pink hover:text-red visited:text-red text-2xl m-1"
-                    />
-                </button>
             </div>
         )
     }
