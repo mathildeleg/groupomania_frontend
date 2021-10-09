@@ -25,12 +25,11 @@ class Forum extends React.Component {
             <div className="container h-auto bg-pink">
                 <div className="flex flex-row">
                     <NavBar />
-                    <div className="flex flex-col flex-1">
+                    <div className="flex flex-col flex-1 mt-8">
                     <LinkButton
                         to={`forum/post`}
                         text="Créer un post"
                         color="red"
-                        otherProps="text-white flex justify-center"
                     />
                     {this.state.post.map((post, index) => (
                         <Post

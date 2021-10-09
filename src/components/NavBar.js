@@ -14,7 +14,7 @@ export default class NavBar extends React.Component {
     render() {
         return (
             <div className="bg-white h-screen overflow-hidden m-3 flex flex-col content-center w-8 rounded-lg">
-                <img src={logo} alt="logo" className="flex content-start mt-4" />
+                <img src={logo} alt="logo" className="flex content-start mt-8" />
                 <Link to={'/forum'}>
                     <FontAwesomeIcon
                         icon={faImages}

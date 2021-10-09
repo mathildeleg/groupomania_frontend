@@ -13,12 +13,25 @@ export default class LinkButton extends React.Component {
         }
     }
 
+    getTextColor = () => {
+        switch (this.props.textColor) {
+            case 'pink':
+                return 'text-pink'
+            case 'red':
+                return 'text-red'
+            case 'black':
+                return 'text-black'
+            default:
+                return 'text-white'
+        }
+    }
+
     render() {
         const { to, text, otherProps } = this.props
         return (
             <Link
                 to={to}
-                className={`${this.getColor()} rounded-xl text-center font-semibold px-5 py-2 m-2 ${otherProps}`}
+                className={`${this.getColor()} ${this.getTextColor()} rounded-xl text-center font-semibold px-5 py-2 m-2 ${otherProps}`}
             >
                 {text}
             </Link>
