@@ -4,9 +4,10 @@ import { customFetch } from '../../helpers/fetch'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
 import NavBar from '../../components/NavBar'
 import Profile from '../../components/Profile'
+import LinkButton from '../../components/LinkButton'
 import DeleteProfile from './DeleteProfile'
 
-class fetchProfile extends React.Component {
+class FetchProfile extends React.Component {
     state = {
         profile: null,
     }
@@ -34,6 +35,13 @@ class fetchProfile extends React.Component {
                                 email={this.state.profile.email}
                             />
                         ) : null}
+                        <div className="bg-pink m-2 mt-8 rounded-lg flex justify-center">
+                            <LinkButton
+                                to={'/profile/me/update'}
+                                text="Modifier le profil"
+                                color="red"
+                            />
+                        </div>
                         <div>
                             <DeleteProfile />
                         </div>
@@ -44,4 +52,4 @@ class fetchProfile extends React.Component {
     }
 }
 
-export default withPrivateRoute(fetchProfile)
+export default withPrivateRoute(FetchProfile)

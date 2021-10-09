@@ -17,8 +17,9 @@ export const ClientURL = {
         register: () => urlHelper('auth/signup', 'POST', false)
     },
     User: {
-        profile: () => urlHelper(`profile/me`, 'GET', true),
-        deleteProfile: () => urlHelper(`profile/me/delete`, 'DELETE', true),
+        profile: () => urlHelper('profile/me', 'GET', true),
+        updateProfile: () => urlHelper('profile/me/update', 'PUT', true),
+        deleteProfile: () => urlHelper('profile/me/delete', 'DELETE', true),
     },
     Forum: {
         forum: () => urlHelper('forum/1/post?start=0', 'GET', true),

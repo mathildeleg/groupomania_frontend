@@ -31,6 +31,7 @@ export default class Post extends React.Component {
                             <LinkButton
                                 to={`/forum/post/${postId}`}
                                 text="..."
+                                textColor="black"
                             />
                         </div>
                     </div>
