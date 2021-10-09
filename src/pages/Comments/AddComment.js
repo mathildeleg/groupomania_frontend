@@ -1,6 +1,7 @@
 import { Formik } from 'formik'
 import React from 'react'
 import Button from '../../components/Button'
+import LinkButton from '../../components/LinkButton'
 import { customFetch } from '../../helpers/fetch'
 import { ClientURL } from '../../helpers/clientURL'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
@@ -72,9 +73,10 @@ class AddComment extends React.Component {
                             />
                             {errors.comment && touched.comment && errors.comment}
                             <div className="flex justify-center pt-8">
+                            <LinkButton to={`/forum`} text="Annuler" color='red' otherProps='text-white'/>
                                 <Button
                                     type="submit"
-                                    text="Publier le commentaire"
+                                    text="Publier"
                                     color="pink"
                                     disabled={isSubmitting}
                                 />

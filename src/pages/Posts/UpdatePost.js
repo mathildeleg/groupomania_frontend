@@ -1,6 +1,7 @@
 import { Formik } from 'formik'
 import React from 'react'
 import Button from '../../components/Button'
+import LinkButton from '../../components/LinkButton'
 import { customFetch } from '../../helpers/fetch'
 import { ClientURL } from '../../helpers/clientURL'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
@@ -77,6 +78,7 @@ class UpdatePost extends React.Component {
                                 />
                                 {errors.post && touched.post && errors.post}
                                 <div className="flex justify-center pt-8">
+                                    <LinkButton to={`/forum`} text="Annuler" color='red' otherProps='text-white'/>
                                     <Button
                                         type="submit"
                                         text="Modifier le post"
@@ -89,7 +91,6 @@ class UpdatePost extends React.Component {
                     </Formik>
                 </div>
                 <div>
-                    {/* <Button color='pink' text="Supprimer le post" type='submit' onClick={}/> */}
                     <div className="bg-pink flex justify-center">
                         <button
                             onClick={this.deletePost}

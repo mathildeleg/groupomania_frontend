@@ -6,6 +6,7 @@ import withPrivateRoute from '../helpers/withPrivateRoute'
 import InputPost from '../components/form/InputPost'
 import InputImage from '../components/form/InputImage'
 import Button from '../components/Button'
+import LinkButton from '../components/LinkButton'
 // import Errors from '../components/form/Errors'
 
 class AddPost extends React.Component {
@@ -52,6 +53,7 @@ class AddPost extends React.Component {
                                 value={values.image}
                             />
                             <div className="flex justify-center pt-8">
+                                <LinkButton to={`/forum`} text="Annuler" color='red' otherProps='text-white'/>
                                 <Button
                                     type="submit"
                                     text="Publier"
