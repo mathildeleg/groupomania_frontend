@@ -1,13 +1,13 @@
 import { Formik } from 'formik'
 import React from 'react'
-import { customFetch } from '../helpers/fetch'
-import { ClientURL } from '../helpers/clientURL'
-import withPrivateRoute from '../helpers/withPrivateRoute'
-import InputPost from '../components/form/InputPost'
-import InputImage from '../components/form/InputImage'
-import Button from '../components/Button'
-import LinkButton from '../components/LinkButton'
-// import Errors from '../components/form/Errors'
+import { customFetch } from '../../helpers/fetch'
+import { ClientURL } from '../../helpers/clientURL'
+import withPrivateRoute from '../../helpers/withPrivateRoute'
+import InputPost from '../../components/form/InputPost'
+import InputImage from '../../components/form/InputImage'
+import Button from '../../components/Button'
+import LinkButton from '../../components/LinkButton'
+// import Errors from '../../components/form/Errors'
 
 class AddPost extends React.Component {
     addPost = async (data) => {
