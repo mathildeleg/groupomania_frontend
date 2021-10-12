@@ -2,6 +2,7 @@ import { Formik } from 'formik'
 import React from 'react'
 import logo from '../icon-login.svg'
 import Button from '../components/Button'
+import LinkButton from '../components/LinkButton'
 import InputEmail from '../components/form/InputEmail'
 import InputPassword from '../components/form/InputPassword'
 import InputFirstName from '../components/form/InputFirstName'
@@ -47,7 +48,7 @@ export default class Register extends React.Component {
     render() {
         return (
             <div className="bg-pink h-screen m-4 rounded-lg flex flex-col items-center">
-            <img src={logo} alt="logo" className="w-2/3 mt-14" />
+                <img src={logo} alt="logo" className="w-2/3 mt-14" />
                 <Formik
                     initialValues={{
                         email: '',
@@ -152,25 +153,36 @@ export default class Register extends React.Component {
                                 onBlur={handleBlur}
                                 value={values.password}
                             />
-                            {errors.password && touched.password && errors.password}
+                            {errors.password &&
+                                touched.password &&
+                                errors.password}
                             <InputFirstName
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.firstName}
                             />
-                            {errors.firstName && touched.firstName && errors.firstName}
+                            {errors.firstName &&
+                                touched.firstName &&
+                                errors.firstName}
                             <InputLastName
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.lastName}
                             />
-                            {errors.lastName && touched.lastName && errors.lastName}
+                            {errors.lastName &&
+                                touched.lastName &&
+                                errors.lastName}
                             <InputAvatar
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.avatar}
                             />
                             <div className="flex justify-center">
+                                <LinkButton
+                                    to={`/`}
+                                    text="Annuler"
+                                    color="red"
+                                />
                                 <Button
                                     type="submit"
                                     text="S'inscrire"
