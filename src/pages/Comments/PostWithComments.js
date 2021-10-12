@@ -22,7 +22,7 @@ class PostWithComments extends React.Component {
 
     fetchComments = async () => {
         const id = this.props.match.params.postId
-        const comment = await customFetch(ClientURL.Forum.comment(id))
+        const { comment } = await customFetch(ClientURL.Forum.comment(id))
         this.setState({ comment })
     }
 
