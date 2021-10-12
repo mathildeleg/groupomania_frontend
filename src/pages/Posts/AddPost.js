@@ -53,7 +53,7 @@ class AddPost extends React.Component {
                                 value={values.image}
                             />
                             <div className="flex justify-center pt-8">
-                                <LinkButton to={`/forum`} text="Annuler" color='red' otherProps='text-white'/>
+                                <LinkButton to={`/forum`} text="Annuler" color='red'/>
                                 <Button
                                     type="submit"
                                     text="Publier"
