@@ -3,8 +3,8 @@ import { customFetch } from '../../helpers/fetch'
 import { ClientURL } from '../../helpers/clientURL'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
 import Comment from '../../components/Comment'
-import { Link } from 'react-router-dom'
-
+import Button from '../../components/Button'
+import LinkButton from '../../components/LinkButton'
 
 class DeleteComment extends React.Component {
     state = {
@@ -14,14 +14,18 @@ class DeleteComment extends React.Component {
     fetchComment = async () => {
         const id = this.props.match.params.postId
         const commentId = this.props.match.params.commentId
-        const comment = await customFetch(ClientURL.Forum.fetchOneComment(id, commentId))
+        const comment = await customFetch(
+            ClientURL.Forum.fetchOneComment(id, commentId)
+        )
         this.setState({ comment })
     }
 
     deleteComment = async () => {
         const id = this.props.match.params.postId
         const commentId = this.props.match.params.commentId
-        const deleteComment = await customFetch(ClientURL.Forum.deleteComment(id, commentId))
+        const deleteComment = await customFetch(
+            ClientURL.Forum.deleteComment(id, commentId)
+        )
         this.props.history.push(`/forum/post/${id}/comment`)
         return deleteComment
     }
@@ -34,17 +38,31 @@ class DeleteComment extends React.Component {
         const id = this.props.match.params.postId
         const commentId = this.props.match.params.commentId
         return (
-            <div className="bg-pink m-4 rounded-lg flex"> 
-                {this.state.comment ? 
+            <div className="bg-pink m-4 rounded-lg flex">
+                {this.state.comment ? (
                     <Comment
                         author={this.state.comment.author}
                         comment={this.state.comment.commentMessage}
                         date={this.state.comment.createdAt}
                     />
-                : null
-                }
-                <Link to={`/forum/post/${id}/updatecomment/${commentId}`}>Modifier</Link>
-                <button onClick={this.deleteComment}>Supprimer</button>
+                ) : null}
+                <div className="flex flex-col justify-center">
+                    <LinkButton
+                        to={`/forum/post/${id}/updatecomment/${commentId}`}
+                        text="Modifier"
+                        color="red"
+                    ></LinkButton>
+                    <Button
+                        onClick={this.deleteComment}
+                        text="Supprimer"
+                        color="pink"
+                    />
+                    <LinkButton
+                        text="Annuler"
+                        color="red"
+                        to={`/forum/post/${id}/comment`}
+                    />
+                </div>
             </div>
         )
     }
