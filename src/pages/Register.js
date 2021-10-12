@@ -1,5 +1,6 @@
 import { Formik } from 'formik'
 import React from 'react'
+import logo from '../icon-login.svg'
 import Button from '../components/Button'
 import InputEmail from '../components/form/InputEmail'
 import InputPassword from '../components/form/InputPassword'
@@ -45,7 +46,8 @@ export default class Register extends React.Component {
 
     render() {
         return (
-            <div className="bg-pink h-screen m-4 rounded-lg flex">
+            <div className="bg-pink h-screen m-4 rounded-lg flex flex-col items-center">
+            <img src={logo} alt="logo" className="w-2/3 mt-14" />
                 <Formik
                     initialValues={{
                         email: '',
@@ -136,7 +138,7 @@ export default class Register extends React.Component {
                         /* and other goodies */
                     }) => (
                         <form
-                            className="flex flex-col justify-center w-screen p-4"
+                            className="flex flex-col justify-center w-screen pl-2 pr-6"
                             onSubmit={handleSubmit}
                         >
                             <InputEmail

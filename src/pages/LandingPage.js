@@ -1,7 +1,7 @@
 import React from 'react'
 // import { Link } from "react-router-dom";
 import LinkButton from '../components/LinkButton'
-import logo from '../icon-above-font.png'
+import logo from '../icon-landingpage.svg'
 import hero from '../undraw_Social_networking_re_i1ex.svg'
 export default class LandingPage extends React.Component {
     render() {
@@ -14,13 +14,13 @@ export default class LandingPage extends React.Component {
                         to="/login"
                         text="Se connecter"
                         color="pink"
-                        otherProps="text-red"
+                        textColor="red"
                     />
                     <LinkButton
                         to="/register"
                         text="S'inscrire"
                         color="pink"
-                        otherProps="text-red"
+                        textColor="red"
                     />
                 </div>
             </div>
