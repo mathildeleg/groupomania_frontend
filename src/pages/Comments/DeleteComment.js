@@ -38,7 +38,7 @@ class DeleteComment extends React.Component {
         const id = this.props.match.params.postId
         const commentId = this.props.match.params.commentId
         return (
-            <div className="bg-pink m-4 rounded-lg flex">
+            <div className="bg-pink m-4 rounded-lg flex flex-col">
                 {this.state.comment ? (
                     <Comment
                         author={this.state.comment.author}
@@ -46,7 +46,7 @@ class DeleteComment extends React.Component {
                         date={this.state.comment.createdAt}
                     />
                 ) : null}
-                <div className="flex flex-col justify-center">
+                <div className="flex flex-row justify-center">
                     <LinkButton
                         to={`/forum/post/${id}/updatecomment/${commentId}`}
                         text="Modifier"
