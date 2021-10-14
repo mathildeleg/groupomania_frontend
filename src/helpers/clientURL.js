@@ -33,5 +33,6 @@ export const ClientURL = {
         deletePost: (id) => urlHelper(`forum/1/post/${id}`, 'DELETE', true),
         updatePost: (id) => urlHelper(`forum/1/post/${id}`, 'PUT', true),
         likePost: (id) => urlHelper(`forum/1/post/${id}/like`, 'POST', true),
+        hasLiked: (id) => urlHelper(`forum/1/post/${id}/like`, 'GET', true),
     }
 }

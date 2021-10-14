@@ -26,28 +26,28 @@ class Forum extends React.Component {
                 <div className="flex flex-row">
                     <NavBar />
                     <div className="flex flex-col flex-1 mt-8">
-                    <LinkButton
-                        to={`forum/post`}
-                        text="Créer un post"
-                        color="red"
-                    />
-                    {this.state.post.map((post, index) => (
-                        <Post
-                            key={`post_${index}`}
-                            user={post.author}
-                            date={post.createdAt}
-                            text={post.contentMessage}
-                            comments={post.commentsCount}
-                            commentsText={
-                                post.commentsCount <= 1
-                                    ? 'commentaire'
-                                    : 'commentaires'
-                            }
-                            likes={post.likesCount}
-                            image={post.contentImg}
-                            postId={post.postId}
+                        <LinkButton
+                            to={`forum/post`}
+                            text="Créer un post"
+                            color="red"
                         />
-                    ))}
+                        {this.state.post.map((post, index) => (
+                            <Post
+                                key={`post_${index}`}
+                                user={post.author}
+                                date={post.createdAt}
+                                text={post.contentMessage}
+                                comments={post.commentsCount}
+                                commentsText={
+                                    post.commentsCount <= 1
+                                        ? 'commentaire'
+                                        : 'commentaires'
+                                }
+                                likes={post.likesCount}
+                                image={post.contentImg}
+                                postId={post.postId}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
