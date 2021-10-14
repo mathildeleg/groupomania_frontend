@@ -46,9 +46,9 @@ class LikePost extends React.Component {
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4"
-                        fill="#FBD5D5"
+                        fill="#C1170B"
                         viewBox="0 0 24 24"
-                        stroke="#FBD5D5"
+                        stroke="#C1170B"
                     >
                         <path
                             strokeLinecap="round"
