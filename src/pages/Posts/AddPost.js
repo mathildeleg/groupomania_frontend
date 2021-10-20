@@ -21,49 +21,57 @@ class AddPost extends React.Component {
 
     render() {
         return (
-            <div className="bg-pink m-4 rounded-lg flex">
-                <Formik
-                    initialValues={{ post: '', image: '' }}
-                    onSubmit={(values, { setSubmitting }) => {
-                        this.addPost(values)
-                        setSubmitting(false)
-                    }}
-                >
-                    {({
-                        values,
-                        errors,
-                        touched,
-                        handleChange,
-                        handleBlur,
-                        handleSubmit,
-                        isSubmitting,
-                    }) => (
-                        <form
-                            className="flex flex-col justify-center w-screen p-4"
-                            onSubmit={handleSubmit}
-                        >
-                            <InputPost
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.post}
-                            />
-                            <InputImage
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.image}
-                            />
-                            <div className="flex justify-center pt-8">
-                                <LinkButton to={`/forum`} text="Annuler" color='red'/>
-                                <Button
-                                    type="submit"
-                                    text="Publier"
-                                    color="pink"
-                                    disabled={isSubmitting}
+            <div className="bg-white h-screen flex items-center">
+                <div className="bg-pink rounded-lg flex flex-col m-4 w-full">
+                    <Formik
+                        initialValues={{ post: '', image: '' }}
+                        onSubmit={(values, { setSubmitting }) => {
+                            this.addPost(values)
+                            setSubmitting(false)
+                        }}
+                    >
+                        {({
+                            values,
+                            errors,
+                            touched,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit,
+                            isSubmitting,
+                        }) => (
+                            <form
+                                className="flex flex-col justify-center p-4"
+                                onSubmit={handleSubmit}
+                            >
+                                <InputPost
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.post}
                                 />
-                            </div>
-                        </form>
-                    )}
-                </Formik>
+                                <InputImage
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.image}
+                                />
+                                <div className="bg-pink flex justify-center">
+                                    <div className="flex justify-center pt-8">
+                                        <LinkButton
+                                            to={`/forum`}
+                                            text="Annuler"
+                                            color="red"
+                                        />
+                                        <Button
+                                            type="submit"
+                                            text="Publier"
+                                            color="pink"
+                                            disabled={isSubmitting}
+                                        />
+                                    </div>
+                                </div>
+                            </form>
+                        )}
+                    </Formik>
+                </div>
             </div>
         )
     }

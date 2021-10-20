@@ -6,9 +6,10 @@ import LikePost from '../pages/Posts/LikePost'
 import AuthContext from '../helpers/AuthProvider'
 
 export default class Post extends React.Component {
-    static contextType = AuthContext;
+    static contextType = AuthContext
+
     render() {
-        const { profile } = this.context; 
+        const { profile } = this.context
         const {
             text,
             user,
@@ -32,14 +33,15 @@ export default class Post extends React.Component {
                                 {minutes}
                             </div>
                         </div>
-                        {profile.isAdmin === true || profile.userId === userId ? (
+                        {profile.isAdmin === true ||
+                        profile.userId === userId ? (
                             <div>
-                            <LinkButton
-                                to={`/forum/post/${postId}`}
-                                text="..."
-                                textColor="black"
-                            />
-                        </div>
+                                <LinkButton
+                                    to={`/forum/post/${postId}`}
+                                    text="..."
+                                    textColor="black"
+                                />
+                            </div>
                         ) : null}
                     </div>
                     <div className="flex flex-col justify-center p-4">
@@ -69,8 +71,7 @@ export default class Post extends React.Component {
                             </Link>
                         )}
                         <div className="flex text-xs pr-4">
-                            {likes}{' '}
-                            <LikePost postId={postId}/>
+                            {likes} <LikePost postId={postId} />
                         </div>
                     </div>
                 </div>

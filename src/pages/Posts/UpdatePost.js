@@ -30,8 +30,8 @@ class UpdatePost extends React.Component {
 
     render() {
         return (
-            <div className="bg-pink m-4 p-2 rounded-lg flex flex-col">
-                <div>
+            <div className="bg-white h-screen flex items-center">
+                <div className="bg-pink m-4 p-2 rounded-lg flex flex-col w-full">
                     <Formik
                         initialValues={{ post: '' }}
                         validate={(values) => {
@@ -77,27 +77,31 @@ class UpdatePost extends React.Component {
                                     value={values.post}
                                 />
                                 {errors.post && touched.post && errors.post}
-                                <div className="flex justify-center pt-8">
-                                    <LinkButton to={`/forum`} text="Annuler" color='red' otherProps='text-white'/>
-                                    <Button
-                                        type="submit"
-                                        text="Modifier le post"
-                                        color="pink"
-                                        disabled={isSubmitting}
-                                    />
+                                <div className="bg-pink flex justify-center">
+                                    <div className="flex flex-col justify-center pt-8">
+                                        <Button
+                                            type="submit"
+                                            text="Modifier le post"
+                                            color="pink"
+                                            disabled={isSubmitting}
+                                        />
+                                        <Button
+                                            onClick={this.deletePost}
+                                            text="Supprimer le post"
+                                            color="pink"
+                                        />
+                                    </div>
                                 </div>
                             </form>
                         )}
                     </Formik>
-                </div>
-                <div>
                     <div className="bg-pink flex justify-center">
-                        <button
-                            onClick={this.deletePost}
-                            className="text-red rounded-xl bg-white text-center font-semibold px-5 py-2 m-2"
-                        >
-                            Supprimer le post
-                        </button>
+                        <LinkButton
+                            to={`/forum`}
+                            text="Annuler"
+                            color="white"
+                            textColor="red"
+                        />
                     </div>
                 </div>
             </div>

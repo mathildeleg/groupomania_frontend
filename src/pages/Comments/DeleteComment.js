@@ -38,30 +38,35 @@ class DeleteComment extends React.Component {
         const id = this.props.match.params.postId
         const commentId = this.props.match.params.commentId
         return (
-            <div className="bg-pink m-4 rounded-lg flex flex-col">
-                {this.state.comment ? (
-                    <Comment
-                        author={this.state.comment.author}
-                        comment={this.state.comment.commentMessage}
-                        date={this.state.comment.createdAt}
-                    />
-                ) : null}
-                <div className="flex flex-row justify-center">
-                    <LinkButton
-                        to={`/forum/post/${id}/updatecomment/${commentId}`}
-                        text="Modifier"
-                        color="red"
-                    ></LinkButton>
-                    <Button
-                        onClick={this.deleteComment}
-                        text="Supprimer"
-                        color="pink"
-                    />
-                    <LinkButton
-                        text="Annuler"
-                        color="red"
-                        to={`/forum/post/${id}/comment`}
-                    />
+            <div className="bg-white h-screen flex items-center">
+                <div className="bg-pink m-4 p-2 rounded-lg flex flex-col w-full">
+                    {this.state.comment ? (
+                        <Comment
+                            author={this.state.comment.author}
+                            comment={this.state.comment.commentMessage}
+                            date={this.state.comment.createdAt}
+                        />
+                    ) : null}
+                    <div className="flex flex-row justify-center">
+                        <LinkButton
+                            to={`/forum/post/${id}/updatecomment/${commentId}`}
+                            text="Modifier"
+                            color="red"
+                        ></LinkButton>
+                        <Button
+                            onClick={this.deleteComment}
+                            text="Supprimer"
+                            color="pink"
+                        />
+                    </div>
+                    <div className="bg-pink flex justify-center">
+                        <LinkButton
+                            to={`/forum/post/${id}/comment`}
+                            text="Annuler"
+                            color="white"
+                            textColor="red"
+                        />
+                    </div>
                 </div>
             </div>
         )

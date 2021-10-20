@@ -6,82 +6,96 @@ import { ClientURL } from '../../helpers/clientURL'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
 import InputComment from '../../components/form/InputComment'
 import Errors from '../../components/form/Errors'
-// import Comment from '../../components/Comment'
-
+import LinkButton from '../../components/LinkButton'
 
 class UpdateComment extends React.Component {
     updateComment = async (data) => {
         const id = this.props.match.params.postId
         const commentId = this.props.match.params.commentId
-        const updatedComment = await customFetch(ClientURL.Forum.updateComment(id, commentId),
+        const updatedComment = await customFetch(
+            ClientURL.Forum.updateComment(id, commentId),
             {
                 commentMessage: data.comment,
-            })
+            }
+        )
         this.props.history.push(`/forum/post/${id}/comment/${commentId}`)
         return updatedComment
     }
 
     render() {
+        const id = this.props.match.params.postId
         return (
-            <div className="bg-pink m-4 rounded-lg flex"> 
-                <Formik
-                    initialValues={{ comment: '' }}
-                    validate={(values) => {
-                        const errors = {}
-                        if (!values.comment) {
-                            errors.comment = (
-                                <Errors
-                                    errorText={'Veuillez remplir ce champs'}
+            <div className="bg-white h-screen flex items-center">
+                <div className="bg-pink m-4 rounded-lg flex flex-col w-full">
+                    <Formik
+                        initialValues={{ comment: '' }}
+                        validate={(values) => {
+                            const errors = {}
+                            if (!values.comment) {
+                                errors.comment = (
+                                    <Errors
+                                        errorText={'Veuillez remplir ce champs'}
+                                    />
+                                )
+                            } else if (
+                                !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,150}$/i.test(
+                                    values.comment
+                                )
+                            ) {
+                                errors.comment = (
+                                    <Errors
+                                        errorText={'Commentaire non valide'}
+                                    />
+                                )
+                            }
+                            return errors
+                        }}
+                        onSubmit={(values, { setSubmitting }) => {
+                            this.updateComment(values)
+                            setSubmitting(false)
+                        }}
+                    >
+                        {({
+                            values,
+                            errors,
+                            touched,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit,
+                            isSubmitting,
+                        }) => (
+                            <form
+                                className="flex flex-col justify-center p-4"
+                                onSubmit={handleSubmit}
+                            >
+                                <InputComment
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.comment}
                                 />
-                            )
-                        } else if (
-                            !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,150}$/i.test(
-                                values.comment
-                            )
-                        ) {
-                            errors.comment = (
-                                <Errors
-                                    errorText={'Commentaire non valide'}
-                                />
-                            )
-                        }
-                        return errors
-                    }}
-                    onSubmit={(values, { setSubmitting }) => {
-                        this.updateComment(values)
-                        setSubmitting(false)
-                    }}
-                >
-                    {({
-                        values,
-                        errors,
-                        touched,
-                        handleChange,
-                        handleBlur,
-                        handleSubmit,
-                        isSubmitting,
-                    }) => (
-                        <form
-                            className="flex flex-col justify-center w-screen p-4"
-                            onSubmit={handleSubmit}
-                        >
-                            <InputComment
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.comment}
-                            />
-                            {errors.comment && touched.comment && errors.comment}
-                            <div className="flex justify-center pt-8">
-                                <Button
-                                    type="submit"
-                                    text="Modifier le commentaire"
-                                    color="pink"
-                                    disabled={isSubmitting}
-                                />
-                            </div>
-                        </form>
-                    )}
-                </Formik>
+                                {errors.comment &&
+                                    touched.comment &&
+                                    errors.comment}
+                                <div className="bg-pink flex justify-center">
+                                    <div className="flex flex-col justify-center pt-8">
+                                        <Button
+                                            type="submit"
+                                            text="Modifier le commentaire"
+                                            color="pink"
+                                            disabled={isSubmitting}
+                                        />
+                                        <LinkButton
+                                            text="Annuler"
+                                            color="white"
+                                            textColor="red"
+                                            to={`/forum/post/${id}/comment`}
+                                        />
+                                    </div>
+                                </div>
+                            </form>
+                        )}
+                    </Formik>
+                </div>
             </div>
         )
     }
