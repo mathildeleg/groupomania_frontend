@@ -13,6 +13,7 @@ import UpdateComment from './pages/Comments/UpdateComment'
 import UpdatePost from './pages/Posts/UpdatePost'
 import FetchProfile from './pages/Profile/FetchProfile'
 import UpdateProfile from './pages/Profile/UpdateProfile'
+import FetchAllProfiles from './pages/Admin/FetchAllProfiles'
 class App extends React.Component {
     render() {
         return (
@@ -30,6 +31,11 @@ class App extends React.Component {
                                 exact
                                 path="/register"
                                 component={Register}
+                            ></Route>
+                            <Route
+                                exact
+                                path="/profile"
+                                component={FetchAllProfiles}
                             ></Route>
                             <Route
                                 exact

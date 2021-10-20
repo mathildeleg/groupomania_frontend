@@ -22,6 +22,7 @@ class FetchProfile extends React.Component {
                                 lastName={profile.lastName}
                                 avatar={profile.avatar}
                                 email={profile.email}
+                                userId={profile.userId}
                             />
                         ) : null}
                         <div className="bg-pink m-2 mt-8 rounded-lg flex justify-center">
