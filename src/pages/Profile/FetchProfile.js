@@ -1,38 +1,27 @@
 import React from 'react'
-import { ClientURL } from '../../helpers/clientURL'
-import { customFetch } from '../../helpers/fetch'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
 import NavBar from '../../components/NavBar'
 import Profile from '../../components/Profile'
 import LinkButton from '../../components/LinkButton'
 import DeleteProfile from './DeleteProfile'
+import AuthContext from '../../helpers/AuthProvider'
 
 class FetchProfile extends React.Component {
-    state = {
-        profile: null,
-    }
-
-    fetchProfile = async () => {
-        const profile = await customFetch(ClientURL.User.profile())
-        this.setState({ profile })
-    }
-
-    componentDidMount() {
-        this.fetchProfile()
-    }
+    static contextType = AuthContext;
 
     render() {
+        const { profile } = this.context; 
         return (
             <div className="container h-auto bg-pink">
                 <div className="flex flex-row">
                     <NavBar />
                     <div className="flex flex-col flex-1">
-                        {this.state.profile ? (
+                        {profile ? (
                             <Profile
-                                firstName={this.state.profile.firstName}
-                                lastName={this.state.profile.lastName}
-                                avatar={this.state.profile.avatar}
-                                email={this.state.profile.email}
+                                firstName={profile.firstName}
+                                lastName={profile.lastName}
+                                avatar={profile.avatar}
+                                email={profile.email}
                             />
                         ) : null}
                         <div className="bg-pink m-2 mt-8 rounded-lg flex justify-center">
