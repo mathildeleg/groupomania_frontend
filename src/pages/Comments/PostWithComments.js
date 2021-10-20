@@ -64,6 +64,7 @@ class PostWithComments extends React.Component {
                                 date={comment.createdAt}
                                 postId={comment.postId}
                                 commentId={comment.commentId}
+                                userId={comment.userId}
                             />
                         ))}
                         <LinkButton
