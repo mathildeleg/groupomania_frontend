@@ -26,11 +26,13 @@ class Forum extends React.Component {
                 <div className="flex flex-row">
                     <NavBar />
                     <div className="flex flex-col flex-1 mt-8">
-                        <LinkButton
-                            to={`forum/post`}
-                            text="Créer un post"
-                            color="red"
-                        />
+                        <div className="flex justify-center">
+                            <LinkButton
+                                to={`forum/post`}
+                                text="Créer un post"
+                                color="red"
+                            />
+                        </div>
                         {this.state.post.map((post, index) => (
                             <Post
                                 key={`post_${index}`}

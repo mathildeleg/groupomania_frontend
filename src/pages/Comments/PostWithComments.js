@@ -67,12 +67,14 @@ class PostWithComments extends React.Component {
                                 userId={comment.userId}
                             />
                         ))}
-                        <LinkButton
-                            to={`/forum/post/${postId}/newcomment`}
-                            text="Ajouter un commentaire"
-                            color="red"
-                            otherProps="text-white flex justify-center"
-                        />
+                        <div className="flex justify-center">
+                            <LinkButton
+                                to={`/forum/post/${postId}/newcomment`}
+                                text="Ajouter un commentaire"
+                                color="red"
+                                otherProps="text-white flex justify-center"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

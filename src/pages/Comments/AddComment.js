@@ -15,7 +15,7 @@ class AddComment extends React.Component {
             ClientURL.Forum.addComment(id),
             {
                 commentMessage: data.comment,
-                postId: data.postId
+                postId: data.postId,
             }
         )
         this.props.history.push(`/forum/post/${id}/comment`)
@@ -23,67 +23,77 @@ class AddComment extends React.Component {
     }
 
     render() {
+        const id = this.props.match.params.postId
         return (
-            <div className="bg-pink m-4 rounded-lg flex">
-                <Formik
-                    initialValues={{ comment: '' }}
-                    validate={(values) => {
-                        const errors = {}
-                        if (!values.comment) {
-                            errors.comment = (
-                                <Errors
-                                    errorText={'Veuillez remplir ce champs'}
+            <div className="bg-white h-screen flex items-center">
+                <div className="bg-pink m-4 rounded-lg flex flex-col w-full">
+                    <Formik
+                        initialValues={{ comment: '' }}
+                        validate={(values) => {
+                            const errors = {}
+                            if (!values.comment) {
+                                errors.comment = (
+                                    <Errors
+                                        errorText={'Veuillez remplir ce champs'}
+                                    />
+                                )
+                            } else if (
+                                !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,150}$/i.test(
+                                    values.comment
+                                )
+                            ) {
+                                errors.comment = (
+                                    <Errors
+                                        errorText={'Commentaire non valide'}
+                                    />
+                                )
+                            }
+                            return errors
+                        }}
+                        onSubmit={(values, { setSubmitting }) => {
+                            this.addComment(values)
+                            setSubmitting(false)
+                        }}
+                    >
+                        {({
+                            values,
+                            errors,
+                            touched,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit,
+                            isSubmitting,
+                        }) => (
+                            <form
+                                className="flex flex-col justify-center p-4"
+                                onSubmit={handleSubmit}
+                            >
+                                <InputComment
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.comment}
                                 />
-                            )
-                        } else if (
-                            !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,150}$/i.test(
-                                values.comment
-                            )
-                        ) {
-                            errors.comment = (
-                                <Errors
-                                    errorText={'Commentaire non valide'}
-                                />
-                            )
-                        }
-                        return errors
-                    }}
-                    onSubmit={(values, { setSubmitting }) => {
-                        this.addComment(values)
-                        setSubmitting(false)
-                    }}
-                >
-                    {({
-                        values,
-                        errors,
-                        touched,
-                        handleChange,
-                        handleBlur,
-                        handleSubmit,
-                        isSubmitting,
-                    }) => (
-                        <form
-                            className="flex flex-col justify-center w-screen p-4"
-                            onSubmit={handleSubmit}
-                        >
-                            <InputComment
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.comment}
-                            />
-                            {errors.comment && touched.comment && errors.comment}
-                            <div className="flex justify-center pt-8">
-                            <LinkButton to={`/forum`} text="Annuler" color='red' otherProps='text-white'/>
-                                <Button
-                                    type="submit"
-                                    text="Publier"
-                                    color="pink"
-                                    disabled={isSubmitting}
-                                />
-                            </div>
-                        </form>
-                    )}
-                </Formik>
+                                {errors.comment &&
+                                    touched.comment &&
+                                    errors.comment}
+                                <div className="flex justify-center pt-8">
+                                    <LinkButton
+                                        to={`/forum/post/${id}/comment`}
+                                        text="Annuler"
+                                        color="white"
+                                        textColor="red"
+                                    />
+                                    <Button
+                                        type="submit"
+                                        text="Publier"
+                                        color="pink"
+                                        disabled={isSubmitting}
+                                    />
+                                </div>
+                            </form>
+                        )}
+                    </Formik>
+                </div>
             </div>
         )
     }
