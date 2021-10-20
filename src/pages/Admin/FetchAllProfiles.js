@@ -2,8 +2,8 @@ import React from 'react'
 import withPrivateRoute from '../../helpers/withPrivateRoute'
 import { customFetch } from '../../helpers/fetch'
 import { ClientURL } from '../../helpers/clientURL'
-import Profile from '../../components/Profile'
 import NavBar from '../../components/NavBar'
+import BackOffice from '../../components/BackOffice'
 
 class FetchAllProfiles extends React.Component {
     state = {
@@ -27,7 +27,7 @@ class FetchAllProfiles extends React.Component {
                     <div className="flex flex-col flex-auto">
                         {this.state.profile.map((profile, index) => (
                             <div className="m-8">
-                                <Profile
+                                <BackOffice
                                     key={`comment_${index}`}
                                     email={profile.email}
                                     firstName={profile.firstName}

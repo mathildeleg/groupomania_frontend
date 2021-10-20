@@ -16,6 +16,10 @@ export const ClientURL = {
         login: () => urlHelper('auth/login', 'POST', false),
         register: () => urlHelper('auth/signup', 'POST', false)
     },
+    Admin: {
+        fetchAllProfiles: () => urlHelper('profile', 'GET', true),
+        deleteUser: (userId) => urlHelper(`profile/${userId}`, 'DELETE', true),
+    },
     User: {
         profile: () => urlHelper('profile/me', 'GET', true),
         updateProfile: () => urlHelper('profile/me/update', 'PUT', true),
