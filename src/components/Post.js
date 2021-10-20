@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom'
 import { timeAgo } from '../helpers/timeAgo'
 import LinkButton from './LinkButton'
 import LikePost from '../pages/Posts/LikePost'
+import AuthContext from '../helpers/AuthProvider'
 
 export default class Post extends React.Component {
+    static contextType = AuthContext;
     render() {
+        const { profile } = this.context; 
         const {
             text,
             user,
+            userId,
             date,
             comments,
             likes,
@@ -28,13 +32,15 @@ export default class Post extends React.Component {
                                 {minutes}
                             </div>
                         </div>
-                        <div>
+                        {profile.isAdmin === true || profile.userId === userId ? (
+                            <div>
                             <LinkButton
                                 to={`/forum/post/${postId}`}
                                 text="..."
                                 textColor="black"
                             />
                         </div>
+                        ) : null}
                     </div>
                     <div className="flex flex-col justify-center p-4">
                         {image ? (
