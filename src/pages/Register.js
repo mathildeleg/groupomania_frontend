@@ -47,8 +47,8 @@ export default class Register extends React.Component {
 
     render() {
         return (
-            <div className="bg-pink h-screen m-4 rounded-lg flex flex-col items-center">
-                <img src={logo} alt="logo" className="w-2/3 mt-14" />
+            <div className="bg-pink m-4 rounded-lg flex flex-col items-center">
+                <img src={logo} alt="logo" className="w-2/3 mt-4" />
                 <Formik
                     initialValues={{
                         email: '',
@@ -177,16 +177,17 @@ export default class Register extends React.Component {
                                 onBlur={handleBlur}
                                 value={values.avatar}
                             />
-                            <div className="flex justify-center">
-                                <LinkButton
-                                    to={`/`}
-                                    text="Annuler"
-                                    color="red"
-                                />
+                            <div className="flex justify-center m-8">
                                 <Button
                                     type="submit"
                                     text="S'inscrire"
                                     color="red"
+                                />
+                                <LinkButton
+                                    to={`/`}
+                                    text="Annuler"
+                                    color="white"
+                                    textColor="red"
                                 />
                             </div>
                         </form>

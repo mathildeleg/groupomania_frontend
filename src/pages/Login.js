@@ -112,15 +112,16 @@ export default class Login extends React.Component {
                                 touched.password &&
                                 errors.password}
                             <div className="flex justify-center pt-8">
-                                <LinkButton
-                                    to={`/`}
-                                    text="Annuler"
-                                    color="red"
-                                />
                                 <Button
                                     type="submit"
                                     text="Se connecter"
                                     color="pink"
+                                />
+                                <LinkButton
+                                    to={`/`}
+                                    text="Annuler"
+                                    color="white"
+                                    textColor="red"
                                 />
                             </div>
                         </form>

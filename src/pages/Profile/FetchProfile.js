@@ -13,7 +13,7 @@ class FetchProfile extends React.Component {
         const { profile } = this.context; 
         return (
             <div className="container h-auto bg-pink">
-                <div className="flex flex-row">
+                <div className="flex flex-row items-center">
                     <NavBar />
                     <div className="flex flex-col flex-1">
                         {profile ? (
