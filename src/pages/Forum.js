@@ -34,6 +34,7 @@ class Forum extends React.Component {
                         {this.state.post.map((post, index) => (
                             <Post
                                 key={`post_${index}`}
+                                userId={post.userId}
                                 user={post.author}
                                 date={post.createdAt}
                                 text={post.contentMessage}

@@ -33,6 +33,7 @@ class PostWithComments extends React.Component {
 
     render() {
         const postId = this.props.match.params.postId
+
         return (
             <div className="container h-auto bg-pink">
                 <div className="flex flex-row">
@@ -41,6 +42,7 @@ class PostWithComments extends React.Component {
                         {this.state.post ? (
                             <Post
                                 user={this.state.post.author}
+                                userId={this.state.post.userId}
                                 date={this.state.post.createdAt}
                                 text={this.state.post.contentMessage}
                                 comments={this.state.post.commentsCount}

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import TokenContext from './TokenContext';
+import AuthContext from './AuthProvider';
 
 export default function withPrivateRoute(WrappedComponent) {
     return class extends React.Component {
-        static contextType = TokenContext;
+        static contextType = AuthContext;
         
         render() {
             const { token } = this.context

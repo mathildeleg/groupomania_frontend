@@ -7,11 +7,11 @@ import InputEmail from '../components/form/InputEmail'
 import InputPassword from '../components/form/InputPassword'
 import Errors from '../components/form/Errors'
 import { ClientURL } from '../helpers/clientURL'
-import TokenContext from '../helpers/TokenContext'
+import AuthContext from '../helpers/AuthProvider'
 import { customFetch } from '../helpers/fetch'
 
 export default class Login extends React.Component {
-    static contextType = TokenContext
+    static contextType = AuthContext
 
     componentDidMount() {
         const token = localStorage.getItem('token')

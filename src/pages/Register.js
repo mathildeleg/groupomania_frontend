@@ -10,11 +10,11 @@ import InputLastName from '../components/form/InputLastName'
 import InputAvatar from '../components/form/InputAvatar'
 import Errors from '../components/form/Errors'
 import { ClientURL } from '../helpers/clientURL'
-import TokenContext from '../helpers/TokenContext'
+import AuthContext from '../helpers/AuthProvider'
 import { customFetch } from '../helpers/fetch'
 
 export default class Register extends React.Component {
-    static contextType = TokenContext
+    static contextType = AuthContext
 
     componentDidMount() {
         const token = localStorage.getItem('token')

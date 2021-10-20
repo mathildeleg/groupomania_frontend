@@ -7,7 +7,7 @@ import AddComment from './pages/Comments/AddComment'
 import AddPost from './pages/Posts/AddPost'
 import PostWithComments from './pages/Comments/PostWithComments'
 import DeleteComment from './pages/Comments/DeleteComment'
-import { TokenProvider } from './helpers/TokenContext'
+import { AuthProvider } from './helpers/AuthProvider'
 import React from 'react'
 import UpdateComment from './pages/Comments/UpdateComment'
 import UpdatePost from './pages/Posts/UpdatePost'
@@ -20,7 +20,7 @@ class App extends React.Component {
                 <div>
                     <Switch>
                         <Route exact path="/" component={LandingPage}></Route>
-                        <TokenProvider>
+                        <AuthProvider>
                             <Route
                                 exact
                                 path="/login"
@@ -76,7 +76,7 @@ class App extends React.Component {
                                 path="/forum/post/:postId/updatecomment/:commentId"
                                 component={UpdateComment}
                             ></Route>
-                        </TokenProvider>
+                        </AuthProvider>
                     </Switch>
                 </div>
             </BrowserRouter>
