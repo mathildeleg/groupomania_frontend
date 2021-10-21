@@ -22,7 +22,7 @@ class UpdateProfile extends React.Component {
                 avatar: data.avatar,
             }
         )
-        // this.props.history.push('/profile/me')
+        this.props.history.push('/profile/me')
         return updatedProfile
     }
 
