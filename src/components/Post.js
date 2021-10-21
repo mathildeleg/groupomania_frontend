@@ -25,7 +25,7 @@ export default class Post extends React.Component {
 
         return (
             <div className="container flex bg-pink">
-                <div className="container flex flex-col rounded-xl bg-white m-5 p-4">
+                <div className="container flex flex-col rounded-xl bg-white m-5 p-4 lg:mx-24">
                     <div className="flex flex-row justify-between content-start">
                         <div className="flex flex-col justify-start pl-4">
                             <div className="text-red">{user}</div>
