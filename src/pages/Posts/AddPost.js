@@ -7,7 +7,7 @@ import InputPost from '../../components/form/InputPost'
 import InputImage from '../../components/form/InputImage'
 import Button from '../../components/Button'
 import LinkButton from '../../components/LinkButton'
-// import Errors from '../../components/form/Errors'
+import Errors from '../../components/form/Errors'
 
 class AddPost extends React.Component {
     addPost = async (data) => {
@@ -25,6 +25,17 @@ class AddPost extends React.Component {
                 <div className="bg-pink rounded-lg flex flex-col m-4 w-full">
                     <Formik
                         initialValues={{ post: '', image: '' }}
+                        validate={(values) => {
+                            const errors = {}
+                            if (!values.post) {
+                                errors.post = (
+                                    <Errors
+                                        errorText={'Veuillez remplir ce champs'}
+                                    />
+                                )
+                            }
+                            return errors
+                        }}
                         onSubmit={(values, { setSubmitting }) => {
                             this.addPost(values)
                             setSubmitting(false)
@@ -48,6 +59,9 @@ class AddPost extends React.Component {
                                     onBlur={handleBlur}
                                     value={values.post}
                                 />
+                                {errors.post &&
+                                    touched.post &&
+                                    errors.post}
                                 <InputImage
                                     onChange={handleChange}
                                     onBlur={handleBlur}

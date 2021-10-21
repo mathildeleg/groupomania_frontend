@@ -42,14 +42,6 @@ class UpdatePost extends React.Component {
                                         errorText={'Veuillez remplir ce champs'}
                                     />
                                 )
-                            } else if (
-                                !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,150}$/i.test(
-                                    values.post
-                                )
-                            ) {
-                                errors.post = (
-                                    <Errors errorText={'Message non valide'} />
-                                )
                             }
                             return errors
                         }}

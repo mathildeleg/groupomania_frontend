@@ -37,16 +37,6 @@ class AddComment extends React.Component {
                                         errorText={'Veuillez remplir ce champs'}
                                     />
                                 )
-                            } else if (
-                                !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,150}$/i.test(
-                                    values.comment
-                                )
-                            ) {
-                                errors.comment = (
-                                    <Errors
-                                        errorText={'Commentaire non valide'}
-                                    />
-                                )
                             }
                             return errors
                         }}
