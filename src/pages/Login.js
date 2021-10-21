@@ -13,6 +13,10 @@ import { customFetch } from '../helpers/fetch'
 export default class Login extends React.Component {
     static contextType = AuthContext
 
+    state = {
+        error: null,
+    }
+
     componentDidMount() {
         const token = localStorage.getItem('token')
         this.loginAndNavigate(token)
@@ -34,6 +38,7 @@ export default class Login extends React.Component {
         })
         localStorage.setItem('token', dataToken.token)
         this.loginAndNavigate(dataToken.token)
+        this.setState({ error: 'Email ou mot de passe incorrect' })
     }
 
     render() {
@@ -91,7 +96,6 @@ export default class Login extends React.Component {
                         handleBlur,
                         handleSubmit,
                         isSubmitting,
-                        /* and other goodies */
                     }) => (
                         <form
                             className="flex flex-col justify-center w-screen pl-2 pr-6"
@@ -111,6 +115,11 @@ export default class Login extends React.Component {
                             {errors.password &&
                                 touched.password &&
                                 errors.password}
+                            {this.state.error === null ? null : (
+                                <div className="flex justify-center lowercase text-red font-semibold m-2">
+                                    {this.state.error}
+                                </div>
+                            )}
                             <div className="flex justify-center pt-8">
                                 <Button
                                     type="submit"
