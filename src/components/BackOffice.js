@@ -11,36 +11,41 @@ export default class BackOffice extends React.Component {
     }
 
     render() {
-        const { firstName, lastName, email, userId } = this.props
+        const { firstName, lastName, email, avatar, userId } = this.props
 
         return (
-            <div className="container flex flex-col bg-pink space-y-4">
-                <div className="space-y-4 rounded-xl bg-white p-4">
-                    <div className="flex flex-col space-x-4 space-y-1 justify-center pr-5">
-                        <div className="lowercase text-red font-semibold pl-4">
-                            utilisateur
-                        </div>
-                        <div className="rounded-xl bg-pink p-4">
-                            {firstName} {lastName}
-                        </div>
-                    </div>
-                    <div className="flex flex-col space-x-4 space-y-1 justify-center pr-5">
-                        <div className="lowercase text-red font-semibold pl-4">
-                            Email
-                        </div>
-                        <div className="rounded-xl bg-pink p-4">{email}</div>
-                    </div>
-                    <div className="bg-white rounded-lg flex justify-center p-4">
-                        <button
-                            onClick={this.deleteUser}
-                            userId={userId}
-                            className="bg-red rounded-xl text-white font-semibold p-2"
-                        >
-                            Supprimer ce compte
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <tbody className="bg-white divide-y divide-white">
+                    <tr>
+                        <td className="px-2 py-2 md:px-20 md:py-8 lg:px-28 lg:py-8 whitespace-nowrap">
+                            <div className="flex items-center">
+                                <div className="flex-shrink-0 h-10 w-10 md:h-16 md:w-16 inline-flex">
+                                    <img
+                                        className="h-10 w-10 md:h-16 md:w-16 rounded-full object-cover"
+                                        src={avatar}
+                                        alt=""
+                                    />
+                                </div>
+                                <div className="ml-2">
+                                    <div className="text-sm font-medium text-gray-900">
+                                        {firstName} {lastName}
+                                    </div>
+                                    <div className="text-sm text-gray-500">
+                                        {email}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td className="px-2 py-4 md:px-10 md:py-10 lg:px-28 whitespace-nowrap text-right text-sm font-medium">
+                            <button
+                                onClick={this.deleteUser}
+                                userId={userId}
+                                className="bg-red rounded-xl text-white font-semibold p-2"
+                            >
+                                Supprimer
+                            </button>
+                        </td>
+                    </tr>
+            </tbody>
         )
     }
 }

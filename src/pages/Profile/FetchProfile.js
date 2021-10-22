@@ -15,7 +15,7 @@ class FetchProfile extends React.Component {
             <div className="container h-auto bg-pink">
                 <div className="flex flex-row items-center">
                     <NavBar />
-                    <div className="flex flex-col flex-1">
+                    <div className="flex flex-col flex-1 h-screen justify-center items-center overflow-hidden">
                         {profile ? (
                             <Profile
                                 firstName={profile.firstName}

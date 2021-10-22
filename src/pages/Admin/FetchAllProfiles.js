@@ -24,18 +24,47 @@ class FetchAllProfiles extends React.Component {
             <div className="container h-auto bg-pink">
                 <div className="flex flex-row">
                     <NavBar />
-                    <div className="flex flex-col flex-auto">
-                        {this.state.profile.map((profile, index) => (
-                            <div className="m-8">
-                                <BackOffice
-                                    key={`comment_${index}`}
-                                    email={profile.email}
-                                    firstName={profile.firstName}
-                                    lastName={profile.lastName}
-                                    userId={profile.userId}
-                                />
+                    <div className="flex mx-6 md:items-center md:justify-center overflow-x-auto">
+                        <div className="my-2 md:mx-6 lg:mx-8">
+                            <div className="py-2 align-middle inline-block min-w-full md:px-5 lg:px-4">
+                                <div className="shadow overflow-hidden border-b border-white sm:rounded-lg">
+                                    <table className="min-w-1/2 divide-y divide-white table-fixed">
+                                        <thead className="bg-gray-50 ">
+                                            <tr>
+                                                <th
+                                                    scope="col"
+                                                    className="px-4 py-3 text-left text-xs font-semibold text-red uppercase tracking-wider"
+                                                >
+                                                    Utilisateurs
+                                                </th>
+                                                <th
+                                                    scope="col"
+                                                    className="relative px-4 py-3"
+                                                >
+                                                    <span className="sr-only">
+                                                        Supprimer
+                                                    </span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        {this.state.profile.map(
+                                            (profile, index) => (
+                                                <BackOffice
+                                                    key={`comment_${index}`}
+                                                    email={profile.email}
+                                                    firstName={
+                                                        profile.firstName
+                                                    }
+                                                    lastName={profile.lastName}
+                                                    userId={profile.userId}
+                                                    avatar={profile.avatar}
+                                                />
+                                            )
+                                        )}
+                                    </table>
+                                </div>
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </div>

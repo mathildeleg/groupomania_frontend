@@ -5,10 +5,9 @@ export default class Profile extends React.Component {
         const { avatar, firstName, lastName, email } = this.props
 
         return (
-            <div className="container flex flex-col bg-pink">
                 <div className="flex flex-col space-x-4 justify-center items-center p-4 m-8 space-y-4">
                     <img
-                        className="h-16 w-16 rounded-full ring-2 ring-white object-cover "
+                        className="h-16 w-16 rounded-full ring-2 ring-white object-cover"
                         src={avatar}
                         alt=""
                     >
@@ -40,7 +39,6 @@ export default class Profile extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
         )
     }
 }
