@@ -25,7 +25,7 @@ class FetchProfile extends React.Component {
                                 userId={profile.userId}
                             />
                         ) : null}
-                        <div className="bg-pink m-2 mt-8 rounded-lg flex justify-center">
+                        <div className="bg-pink m-2 rounded-lg flex justify-center">
                             <LinkButton
                                 to={'/profile/me/update'}
                                 text="Modifier le profil"
