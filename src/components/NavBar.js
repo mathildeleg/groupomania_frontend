@@ -19,7 +19,7 @@ export default class NavBar extends React.Component {
         const { profile } = this.context
 
         return (
-            <div className="bg-white h-screen ml-3 flex flex-col content-center w-9 rounded-lg lg:mx-8 lg:w-12">
+            <div className="bg-white h-screen ml-3 mt-3 flex flex-col content-center w-9 rounded-lg lg:mx-8 lg:w-12">
                 <img
                     src={logo}
                     alt="logo"
