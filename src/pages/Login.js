@@ -36,9 +36,10 @@ export default class Login extends React.Component {
             email: data.email,
             password: data.password,
         })
-        localStorage.setItem('token', dataToken.token)
+        dataToken.error !== undefined
+            ? this.setState({ error: 'Email ou mot de passe incorrect' })
+            : localStorage.setItem('token', dataToken.token) 
         this.loginAndNavigate(dataToken.token)
-        this.setState({ error: 'Email ou mot de passe incorrect' })
     }
 
     render() {
