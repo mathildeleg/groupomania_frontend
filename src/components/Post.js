@@ -40,6 +40,7 @@ export default class Post extends React.Component {
                                     to={`/forum/post/${postId}`}
                                     text="..."
                                     textColor="black"
+                                    ringColor="red"
                                 />
                             </div>
                         ) : null}
@@ -58,14 +59,14 @@ export default class Post extends React.Component {
                         {comments ? (
                             <Link
                                 to={`/forum/post/${postId}/comment`}
-                                className="flex text-xs lowercase pl-4"
+                                className="flex text-xs lowercase pl-4 focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent"
                             >
                                 {comments} {commentsText}
                             </Link>
                         ) : (
                             <Link
                                 to={`/forum/post/${postId}/newcomment`}
-                                className="flex text-xs lowercase pl-4"
+                                className="flex text-xs lowercase pl-4 focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent"
                             >
                                 ajouter un commentaire
                             </Link>

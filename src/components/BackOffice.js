@@ -1,7 +1,7 @@
 import React from 'react'
 import { customFetch } from '../helpers/fetch'
 import { ClientURL } from '../helpers/clientURL'
-import { Link } from 'react-router-dom'
+import LinkButton from './LinkButton'
 
 export default class BackOffice extends React.Component {
     deleteUser = async () => {
@@ -36,13 +36,14 @@ export default class BackOffice extends React.Component {
                         </div>
                     </td>
                     <td className="px-2 py-4 md:px-10 md:py-10 lg:px-28 whitespace-nowrap text-right text-sm font-medium">
-                        <button
+                        <LinkButton
                             onClick={this.deleteUser}
                             userId={userId}
                             className="bg-red rounded-xl text-white font-semibold p-2"
+                            to="/forum"
                         >
-                            <Link to="/forum">Supprimer</Link>
-                        </button>
+                            Supprimer
+                        </LinkButton>
                     </td>
                 </tr>
             </tbody>

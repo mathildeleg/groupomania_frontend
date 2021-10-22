@@ -26,12 +26,25 @@ export default class LinkButton extends React.Component {
         }
     }
 
+    getRingColor = () => {
+        switch (this.props.textColor) {
+            case 'pink':
+                return 'focus:ring-pink'
+            case 'red':
+                return 'focus:ring-red'
+            case 'black':
+                return 'focus:ring-black'
+            default:
+                return 'focus:ring-white'
+        }
+    }
+
     render() {
         const { to, text, otherProps } = this.props
         return (
             <Link
-                to={to}
-                className={`${this.getColor()} ${this.getTextColor()} rounded-xl text-center font-semibold px-5 py-2 m-2 ${otherProps}`}
+                to={to}     
+                className={`${this.getColor()} ${this.getTextColor()} ${this.getRingColor()} rounded-xl text-center font-semibold px-5 py-2 m-2 focus:outline-none focus:ring-2 focus:border-transparent`}
             >
                 {text}
             </Link>

@@ -25,7 +25,7 @@ export default class NavBar extends React.Component {
                     alt="logo"
                     className="flex content-start mt-8"
                 />
-                <Link to={'/forum'}>
+                <Link to={'/forum'} className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
                     <FontAwesomeIcon
                         icon={faImages}
                         className="text-pink hover:text-red visited:text-red text-2xl flex m-1 mt-16 lg:text-3xl lg:m-2 lg:mt-24"
@@ -33,21 +33,21 @@ export default class NavBar extends React.Component {
                 </Link>
                 <div className="mt-96">
                     {profile.isAdmin === true ? (
-                        <Link to={`/profile`}>
+                        <Link to={`/profile`} className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
                             <FontAwesomeIcon
                                 icon={faUsersCog}
                                 className="text-pink hover:text-red visited:text-red text-2xl m-1 mb-16 lg:text-3xl lg:m-2 lg:mt-24"
                             />
                         </Link>
                     ) : null}
-                    <Link to={`/profile/me`}>
+                    <Link to={`/profile/me`} className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
                         <FontAwesomeIcon
                             icon={faCog}
                             className="text-pink hover:text-red visited:text-red text-2xl m-1.5 lg:text-3xl lg:m-2.5 lg:mt-24"
                         />
                     </Link>
-                    <button onClick={this.logOut}>
-                        <Link to="/">
+                    <button onClick={this.logOut} className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
+                        <Link to="/" className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
                             <FontAwesomeIcon
                                 icon={faSignOutAlt}
                                 className="text-pink hover:text-red visited:text-red text-2xl m-1.5 lg:text-3xl lg:m-2.5 lg:mt-24"

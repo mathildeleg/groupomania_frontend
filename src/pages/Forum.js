@@ -31,6 +31,7 @@ class Forum extends React.Component {
                                 to={`forum/post`}
                                 text="Créer un post"
                                 color="red"
+                                ringColor="white"
                             />
                         </div>
                         {this.state.post.map((post, index) => (
