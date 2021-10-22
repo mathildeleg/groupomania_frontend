@@ -17,7 +17,7 @@ export default class LandingPage extends React.Component {
                     </div>
                     <img
                         src={hero}
-                        alt="conversation"
+                        alt="illustration of app"
                         className="w-4/5 lg:w-11/12 lg:ml-16"
                     />
                 </div>

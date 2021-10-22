@@ -50,7 +50,7 @@ export default class Post extends React.Component {
                             <img
                                 className="object-contain sm:object-scale-down"
                                 src={image}
-                                alt="postImage"
+                                alt="post content"
                             />
                         ) : null}
                         <div className="flex justify-center p-2">{text}</div>

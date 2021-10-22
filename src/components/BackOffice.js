@@ -22,7 +22,7 @@ export default class BackOffice extends React.Component {
                                 <img
                                     className="h-10 w-10 md:h-16 md:w-16 rounded-full object-cover"
                                     src={avatar}
-                                    alt=""
+                                    alt="user's avatar"
                                 />
                             </div>
                             <div className="ml-2">

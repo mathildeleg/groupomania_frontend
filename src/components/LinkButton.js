@@ -40,7 +40,7 @@ export default class LinkButton extends React.Component {
     }
 
     render() {
-        const { to, text, otherProps } = this.props
+        const { to, text } = this.props
         return (
             <Link
                 to={to}     

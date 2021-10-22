@@ -9,7 +9,7 @@ export default class Profile extends React.Component {
                     <img
                         className="h-16 w-16 rounded-full ring-2 ring-white object-cover"
                         src={avatar}
-                        alt=""
+                        alt="user's avatar"
                     >
                     </img>
                     <div className="space-y-4">
