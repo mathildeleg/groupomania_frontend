@@ -47,10 +47,12 @@ export default class NavBar extends React.Component {
                         />
                     </Link>
                     <button onClick={this.logOut}>
-                        <FontAwesomeIcon
-                            icon={faSignOutAlt}
-                            className="text-pink hover:text-red visited:text-red text-2xl m-1.5 lg:text-3xl lg:m-2.5 lg:mt-24"
-                        />
+                        <Link to="/">
+                            <FontAwesomeIcon
+                                icon={faSignOutAlt}
+                                className="text-pink hover:text-red visited:text-red text-2xl m-1.5 lg:text-3xl lg:m-2.5 lg:mt-24"
+                            />
+                        </Link>
                     </button>
                 </div>
             </div>
