@@ -12,7 +12,7 @@ class FetchProfile extends React.Component {
     render() {
         const { profile } = this.context; 
         return (
-            <div className="container h-auto bg-pink">
+            <div className="container h-auto bg-pink dark:bg-blue">
                 <div className="flex flex-row items-center">
                     <NavBar />
                     <div className="flex flex-col flex-1 h-screen justify-center items-center overflow-hidden">
@@ -25,7 +25,7 @@ class FetchProfile extends React.Component {
                                 userId={profile.userId}
                             />
                         ) : null}
-                        <div className="bg-pink m-2 rounded-lg flex justify-center">
+                        <div className="m-2 rounded-lg flex justify-center">
                             <LinkButton
                                 to={'/profile/me/update'}
                                 text="Modifier le profil"

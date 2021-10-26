@@ -12,11 +12,11 @@ export default class Comment extends React.Component {
         const minutes = timeAgo(date)
 
         return (
-            <div className="flex bg-pink justify-end">
-                <div className="container rounded-xl bg-white w-3/4 m-5 p-4">
+            <div className="flex bg-pink dark:bg-blue justify-end">
+                <div className="container rounded-xl bg-white dark:bg-pink-dark w-3/4 m-5 p-4">
                     <div className="flex flex-row justify-between content-start">
                         <div className="flex flex-col justify-start pl-4">
-                            <div className="text-red">{author}</div>
+                            <div className="text-red dark:text-blue">{author}</div>
                             <div className="text-xs pl-8 lowercase">
                                 {minutes}
                             </div>

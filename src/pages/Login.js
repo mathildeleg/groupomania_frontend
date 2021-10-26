@@ -1,6 +1,6 @@
 import { Formik } from 'formik'
 import React from 'react'
-import logo from '../icon-login.svg'
+import logo from '../assets/icon-login.svg'
 import Button from '../components/Button'
 import LinkButton from '../components/LinkButton'
 import InputEmail from '../components/form/InputEmail'
@@ -44,7 +44,7 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <div className="bg-pink h-screen m-4 rounded-lg flex flex-col items-center">
+            <div className="bg-pink dark:bg-blue h-screen m-4 flex flex-col items-center">
                 <img src={logo} alt="logo" className="w-2/3 mt-14" />
                 <Formik
                     initialValues={{ email: '', password: '' }}
@@ -117,7 +117,7 @@ export default class Login extends React.Component {
                                 touched.password &&
                                 errors.password}
                             {this.state.error === null ? null : (
-                                <div className="flex justify-center lowercase text-red font-semibold m-2">
+                                <div className="flex justify-center lowercase text-red dark:text-pink-dark font-semibold m-2">
                                     {this.state.error}
                                 </div>
                             )}

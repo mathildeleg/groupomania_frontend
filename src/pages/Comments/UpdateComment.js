@@ -25,8 +25,8 @@ class UpdateComment extends React.Component {
     render() {
         const id = this.props.match.params.postId
         return (
-            <div className="bg-white h-screen flex items-center">
-                <div className="bg-pink m-4 rounded-lg flex flex-col w-full">
+            <div className="bg-white dark:bg-blue h-screen flex items-center">
+                <div className="bg-pink dark:bg-pink-dark m-4 rounded-lg flex flex-col w-full">
                     <Formik
                         initialValues={{ comment: '' }}
                         validate={(values) => {
@@ -66,7 +66,7 @@ class UpdateComment extends React.Component {
                                 {errors.comment &&
                                     touched.comment &&
                                     errors.comment}
-                                <div className="bg-pink flex justify-center">
+                                <div className="flex justify-center">
                                     <div className="flex flex-col justify-center pt-8">
                                         <Button
                                             type="submit"

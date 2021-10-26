@@ -35,7 +35,7 @@ class PostWithComments extends React.Component {
         const postId = this.props.match.params.postId
 
         return (
-            <div className="container h-auto bg-pink">
+            <div className="container h-auto bg-pink dark:bg-blue">
                 <div className="flex flex-row">
                     <NavBar />
                     <div className="flex flex-col flex-auto">

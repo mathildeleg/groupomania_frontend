@@ -24,11 +24,11 @@ export default class Post extends React.Component {
         const minutes = timeAgo(date)
 
         return (
-            <div className="container flex bg-pink">
-                <div className="container flex flex-col rounded-xl bg-white m-5 p-4 lg:mx-24">
+            <div className="container flex bg-pink dark:bg-blue">
+                <div className="container flex flex-col rounded-xl bg-white dark:bg-pink-dark m-5 p-4 lg:mx-24">
                     <div className="flex flex-row justify-between content-start">
                         <div className="flex flex-col justify-start pl-4">
-                            <div className="text-red">{user}</div>
+                            <div className="text-red dark:text-blue">{user}</div>
                             <div className="text-xs pl-8 lowercase">
                                 {minutes}
                             </div>
@@ -48,7 +48,7 @@ export default class Post extends React.Component {
                     <div className="flex flex-col justify-center p-4">
                         {image ? (
                             <img
-                                className="object-contain sm:object-scale-down"
+                                className="object-contain sm:object-scale-down rounded-lg"
                                 src={image}
                                 alt="post content"
                             />

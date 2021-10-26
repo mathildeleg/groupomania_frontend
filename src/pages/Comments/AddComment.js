@@ -25,8 +25,8 @@ class AddComment extends React.Component {
     render() {
         const id = this.props.match.params.postId
         return (
-            <div className="bg-white h-screen flex items-center">
-                <div className="bg-pink m-4 rounded-lg flex flex-col w-full">
+            <div className="bg-white dark:bg-blue h-screen flex items-center">
+                <div className="bg-pink dark:bg-pink-dark m-4 rounded-lg flex flex-col w-full">
                     <Formik
                         initialValues={{ comment: '' }}
                         validate={(values) => {

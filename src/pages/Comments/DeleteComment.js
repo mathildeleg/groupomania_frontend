@@ -38,8 +38,8 @@ class DeleteComment extends React.Component {
         const id = this.props.match.params.postId
         const commentId = this.props.match.params.commentId
         return (
-            <div className="bg-white h-screen flex items-center">
-                <div className="bg-pink m-4 p-2 rounded-lg flex flex-col w-full">
+            <div className="bg-white dark:bg-blue h-screen flex items-center">
+                <div className="bg-pink dark:bg-blue m-4 p-2 rounded-lg flex flex-col w-full">
                     {this.state.comment ? (
                         <Comment
                             author={this.state.comment.author}
@@ -59,7 +59,7 @@ class DeleteComment extends React.Component {
                             color="pink"
                         />
                     </div>
-                    <div className="bg-pink flex justify-center">
+                    <div className="flex justify-center">
                         <LinkButton
                             to={`/forum/post/${id}/comment`}
                             text="Annuler"

@@ -1,12 +1,12 @@
 import React from 'react'
 // import { Link } from "react-router-dom";
 import LinkButton from '../components/LinkButton'
-import logo from '../icon-landingpage.svg'
-import hero from '../undraw_Social_networking_re_i1ex.svg'
+import logo from '../assets/icon-landingpage.svg'
+import hero from '../assets/illustration.svg'
 export default class LandingPage extends React.Component {
     render() {
         return (
-            <div className="flex flex-col lg:flex-row h-screen items-center justify-around m-4 lg:justify-center">
+            <div className="flex flex-col lg:flex-row h-screen items-center justify-around lg:justify-center dark:bg-blue">
                 <div className="flex flex-col items-center">
                     <div className="flex items-center lg:self-end">
                         <img

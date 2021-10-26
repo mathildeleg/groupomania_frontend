@@ -20,7 +20,7 @@ class LikePost extends React.Component {
         this.setState({ liked: hasLiked.data })
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.hasLiked()
     }
 
@@ -45,10 +45,8 @@ class LikePost extends React.Component {
                 ) : (
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4"
-                        fill="#C1170B"
+                        className="h-4 w-4 fill-current stroke-current text-red dark:text-red-dark"
                         viewBox="0 0 24 24"
-                        stroke="#C1170B"
                     >
                         <path
                             strokeLinecap="round"

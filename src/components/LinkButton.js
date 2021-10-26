@@ -5,37 +5,37 @@ export default class LinkButton extends React.Component {
     getColor = () => {
         switch (this.props.color) {
             case 'pink':
-                return 'bg-pink'
+                return 'bg-pink dark:bg-pink-dark'
             case 'red':
-                return 'bg-red'
+                return 'bg-red dark:bg-red-dark'
             default:
-                return 'bg-white'
+                return 'bg-white dark:bg-pink-dark'
         }
     }
 
     getTextColor = () => {
         switch (this.props.textColor) {
             case 'pink':
-                return 'text-pink'
+                return 'text-pink dark:text-pink-dark'
             case 'red':
-                return 'text-red'
+                return 'text-red dark:text-red-dark'
             case 'black':
-                return 'text-black'
+                return 'text-black dark:text-blue'
             default:
-                return 'text-white'
+                return 'text-white dark:text-pink-dark'
         }
     }
 
     getRingColor = () => {
-        switch (this.props.textColor) {
+        switch (this.props.ringColor) {
             case 'pink':
-                return 'focus:ring-pink'
+                return 'focus:ring-pink dark:focus:ring-pink-dark'
             case 'red':
-                return 'focus:ring-red'
+                return 'focus:ring-red dark:focus:ring-red-dark'
             case 'black':
                 return 'focus:ring-black'
             default:
-                return 'focus:ring-white'
+                return 'focus:ring-white dark:focus:ring-blue'
         }
     }
 

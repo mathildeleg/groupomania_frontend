@@ -13,8 +13,8 @@ class DeleteProfile extends React.Component {
 
     render() {
         return (
-            <div className="bg-pink rounded-lg flex justify-center"> 
-                <button onClick={this.deleteProfile} className="bg-red rounded-xl text-white font-semibold p-2">Supprimer le compte</button>
+            <div className="rounded-lg flex justify-center"> 
+                <button onClick={this.deleteProfile} className="bg-red dark:bg-red-dark rounded-xl text-white dark:text-pink-dark font-semibold p-2">Supprimer le compte</button>
             </div>
         )
     }

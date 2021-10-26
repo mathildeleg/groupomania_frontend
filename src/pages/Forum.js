@@ -22,7 +22,7 @@ class Forum extends React.Component {
 
     render() {
         return (
-            <div className="container h-auto bg-pink">
+            <div className="container h-auto bg-pink dark:bg-blue">
                 <div className="flex flex-row">
                     <NavBar />
                     <div className="flex flex-col flex-1 mt-8 md:m-10">

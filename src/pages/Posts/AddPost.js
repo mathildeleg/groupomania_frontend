@@ -21,8 +21,8 @@ class AddPost extends React.Component {
 
     render() {
         return (
-            <div className="bg-white h-screen flex items-center">
-                <div className="bg-pink rounded-lg flex flex-col m-4 w-full">
+            <div className="bg-white dark:bg-blue h-screen flex items-center">
+                <div className="bg-pink dark:bg-pink-dark rounded-lg flex flex-col m-4 w-full">
                     <Formik
                         initialValues={{ post: '', image: '' }}
                         validate={(values) => {
@@ -67,12 +67,13 @@ class AddPost extends React.Component {
                                     onBlur={handleBlur}
                                     value={values.image}
                                 />
-                                <div className="bg-pink flex justify-center">
+                                <div className="flex justify-center">
                                     <div className="flex justify-center pt-8">
                                         <LinkButton
                                             to={`/forum`}
                                             text="Annuler"
-                                            color="red"
+                                            color="white"
+                                            textColor="red"
                                         />
                                         <Button
                                             type="submit"

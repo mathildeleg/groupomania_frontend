@@ -30,8 +30,8 @@ class UpdatePost extends React.Component {
 
     render() {
         return (
-            <div className="bg-white h-screen flex items-center">
-                <div className="bg-pink m-4 p-2 rounded-lg flex flex-col w-full">
+            <div className="bg-white dark:bg-blue h-screen flex items-center">
+                <div className="bg-pink dark:bg-pink-dark m-4 p-2 rounded-lg flex flex-col w-full">
                     <Formik
                         initialValues={{ post: '' }}
                         validate={(values) => {
@@ -69,7 +69,7 @@ class UpdatePost extends React.Component {
                                     value={values.post}
                                 />
                                 {errors.post && touched.post && errors.post}
-                                <div className="bg-pink flex justify-center">
+                                <div className="flex justify-center">
                                     <div className="flex flex-col justify-center pt-8">
                                         <Button
                                             type="submit"
@@ -87,11 +87,10 @@ class UpdatePost extends React.Component {
                             </form>
                         )}
                     </Formik>
-                    <div className="bg-pink flex justify-center">
+                    <div className="flex justify-center">
                         <LinkButton
                             to={`/forum`}
                             text="Annuler"
-                            color="white"
                             textColor="red"
                         />
                     </div>

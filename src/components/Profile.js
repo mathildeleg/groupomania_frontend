@@ -14,26 +14,26 @@ export default class Profile extends React.Component {
                     </img>
                     <div className="space-y-4">
                         <div className="flex flex-col space-y-1 justify-center">
-                            <div className="lowercase text-red font-semibold">
+                            <div className="lowercase text-red dark:text-pink-dark font-semibold">
                                 Prénom
                             </div>
-                            <div className="rounded-xl bg-white p-4">
+                            <div className="rounded-xl bg-white dark:bg-pink-dark p-4">
                                 {firstName}
                             </div>
                         </div>
                         <div className="flex flex-col space-y-1 justify-center">
-                            <div className="lowercase text-red font-semibold">
+                            <div className="lowercase text-red dark:text-pink-dark font-semibold">
                                 Nom
                             </div>
-                            <div className="rounded-xl bg-white p-4">
+                            <div className="rounded-xl bg-white dark:bg-pink-dark p-4">
                                 {lastName}
                             </div>
                         </div>
                         <div className="flex flex-col space-y-1 justify-center">
-                            <div className="lowercase text-red font-semibold">
+                            <div className="lowercase text-red dark:text-pink-dark font-semibold">
                                 Email
                             </div>
-                            <div className="rounded-xl bg-white p-4">
+                            <div className="rounded-xl bg-white dark:bg-pink-dark p-4">
                                 {email}
                             </div>
                         </div>
