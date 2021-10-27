@@ -40,7 +40,7 @@ export default class Post extends React.Component {
                                     to={`/forum/post/${postId}`}
                                     text="..."
                                     textColor="black"
-                                    ringColor="red"
+                                    ring="red"
                                 />
                             </div>
                         ) : null}

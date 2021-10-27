@@ -28,7 +28,7 @@ export default class Comment extends React.Component {
                                     to={`/forum/post/${postId}/comment/${commentId}`}
                                     text="..."
                                     textColor="black"
-                                    ringColor="red"
+                                    ring="red"
                                 />
                             </div>
                         ) : null}

@@ -126,14 +126,14 @@ export default class Login extends React.Component {
                                     type="submit"
                                     text="Se connecter"
                                     color="pink"
-                                    ringColor="red"
+                                    ring="red"
                                 />
                                 <LinkButton
                                     to={`/`}
                                     text="Annuler"
                                     color="white"
                                     textColor="red"
-                                    ringColor="white"
+                                    ring="white"
                                 />
                             </div>
                         </form>

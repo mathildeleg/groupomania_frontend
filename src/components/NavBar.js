@@ -21,7 +21,7 @@ export default class NavBar extends React.Component {
         return (
             <div className="bg-white dark:bg-pink-dark h-screen ml-3 my-5 flex flex-col content-center w-9 rounded-lg lg:mx-8 lg:w-12">
                 <img
-                    srcset={logo}
+                    src={logo}
                     alt="logo"
                     className="flex content-start mt-8"
                 />

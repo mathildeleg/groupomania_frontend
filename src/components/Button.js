@@ -26,7 +26,7 @@ export default class Button extends React.Component {
   }
 
     getRingColor = () => {
-        switch (this.props.ringColor) {
+        switch (this.props.ring) {
             case 'pink':
                 return 'focus:ring-pink dark:focus:ring-pink-dark'
             case 'red':
