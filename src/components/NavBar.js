@@ -19,39 +19,40 @@ export default class NavBar extends React.Component {
         const { profile } = this.context
 
         return (
-            <div className="bg-white dark:bg-pink-dark h-screen ml-3 my-5 flex flex-col content-center w-9 rounded-lg lg:mx-8 lg:w-12">
+            <div className="bg-white dark:bg-pink-dark h-screen ml-3 my-5 flex flex-col items-start w-9 rounded-lg lg:mx-8 lg:w-40">
                 <img
                     src={logo}
                     alt="logo"
                     className="flex content-start mt-8"
                 />
-                <Link to={'/forum'} className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
+                <Link to={'/forum'} className="text-pink dark:text-blue hover:text-red dark:hover:text-red-dark dark:visited:text-red-dark visited:text-red focus:outline-none focus:ring-2 focus:ring-red dark:focus:ring-blue focus:border-transparent flex flex-row justify-center content-center mt-16 lg:mt-24 lg:ml-3">
                     <FontAwesomeIcon
                         icon={faImages}
-                        className="text-pink dark:text-blue hover:text-red dark:hover:text-red-dark dark:visited:text-red-dark visited:text-red text-2xl flex m-1 mt-16 lg:text-3xl lg:m-2 lg:mt-24"
+                        className="text-2xl flex m-1 lg:text-3xl"
                     />
+                    <p className="invisible lg:visible flex content-center lg:text-red lg:dark:text-blue lg:font-semibold lg:text-base lg:m-1.5 lg:ml-2">Forum</p>
                 </Link>
-                <div className="mt-96">
+                <div className="mt-96 flex flex-col lg:ml-0">
                     {profile.isAdmin === true ? (
-                        <Link to={`/profile`} className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
+                        <Link to={`/profile`} className="text-pink dark:text-blue hover:text-red dark:hover:text-red-dark dark:visited:text-red-dark visited:text-red focus:outline-none focus:ring-2 focus:ring-red dark:focus:ring-blue focus:border-transparent flex flex-row content-center m-1 mb-16 text-2xl lg:text-3xl lg:ml-3 lg:m-2 lg:mt-24">
                             <FontAwesomeIcon
                                 icon={faUsersCog}
-                                className="text-pink dark:text-blue hover:text-red dark:hover:text-red-dark dark:visited:text-red-dark visited:text-red text-2xl m-1 mb-16 lg:text-3xl lg:m-2 lg:mt-24"
                             />
+                            <p className="invisible lg:visible flex content-center dark:visited:text-red-dark visited:text-red lg:text-red lg:dark:text-blue lg:font-semibold lg:text-base lg:m-1 lg:ml-2">Back office</p>
                         </Link>
                     ) : null}
-                    <Link to={`/profile/me`} className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
+                    <Link to={`/profile/me`} className="text-pink dark:text-blue hover:text-red dark:hover:text-red-dark dark:visited:text-red-dark visited:text-red focus:outline-none focus:ring-2 focus:ring-red dark:focus:ring-blue focus:border-transparent flex flex-row content-center m-1.5 text-2xl lg:text-3xl lg:mt-24">
                         <FontAwesomeIcon
                             icon={faCog}
-                            className="text-pink dark:text-blue hover:text-red dark:hover:text-red-dark dark:visited:text-red-dark visited:text-red text-2xl m-1.5 lg:text-3xl lg:m-2.5 lg:mt-24"
                         />
+                        <p className="invisible lg:visible flex content-center dark:visited:text-red-dark lg:text-red lg:dark:text-blue lg:font-semibold lg:text-base lg:m-1 lg:ml-2">Paramètres</p>
                     </Link>
-                    <button onClick={this.logOut} className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
-                        <Link to="/" className="focus:outline-none focus:ring-2 focus:ring-red focus:border-transparent">
+                    <button onClick={this.logOut} className="focus:outline-none focus:ring-2 focus:ring-red dark:focus:ring-blue focus:border-transparent flex flex-row content-center m-1.5 lg:ml-3 text-2xl lg:text-3xl lg:mt-24">
+                        <Link to="/" className="text-pink dark:text-blue hover:text-red dark:hover:text-red-dark dark:visited:text-red-dark visited:text-red focus:outline-none focus:ring-2 focus:ring-red dark:focus:ring-blue focus:border-transparent flex flex-row">
                             <FontAwesomeIcon
                                 icon={faSignOutAlt}
-                                className="text-pink dark:text-blue hover:text-red dark:hover:text-red-dark dark:visited:text-red-dark visited:text-red text-2xl m-1.5 lg:text-3xl lg:m-2.5 lg:mt-24"
                             />
+                            <p className="invisible lg:visible flex content-center dark:visited:text-red-dark lg:text-red lg:dark:text-blue lg:font-semibold lg:text-base lg:m-0.5 lg:ml-2">Déconnexion</p>
                         </Link>
                     </button>
                 </div>
