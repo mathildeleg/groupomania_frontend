@@ -28,130 +28,131 @@ class UpdateProfile extends React.Component {
 
     render() {
         return (
-            <div className="bg-pink m-4 rounded-lg flex flex-col">
-                <Formik
-                    initialValues={{
-                        email: '',
-                        firstName: '',
-                        lastName: '',
-                        avatar: '',
-                    }}
-                    validate={(values) => {
-                        const errors = {}
-                        if (!values.email) {
-                            errors.email = (
-                                <Errors
-                                    errorText={'Veuillez remplir ce champs'}
+            <div className="bg-white dark:bg-pink-dark h-screen flex justify-center items-center">
+                <div className="bg-pink dark:bg-blue h-3/4 rounded-lg flex flex-col justify-center items-center">
+                    <Formik
+                        initialValues={{
+                            email: '',
+                            firstName: '',
+                            lastName: '',
+                            avatar: '',
+                        }}
+                        validate={(values) => {
+                            const errors = {}
+                            if (!values.email) {
+                                errors.email = (
+                                    <Errors
+                                        errorText={'Veuillez remplir ce champs'}
+                                    />
+                                )
+                            } else if (
+                                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+                                    values.email
+                                )
+                            ) {
+                                errors.email = (
+                                    <Errors
+                                        errorText={'Adresse email non valide'}
+                                    />
+                                )
+                            }
+                            if (!values.firstName) {
+                                errors.firstName = (
+                                    <Errors
+                                        errorText={'Veuillez remplir ce champs'}
+                                    />
+                                )
+                            } else if (
+                                !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,20}$/i.test(
+                                    values.firstName
+                                )
+                            ) {
+                                errors.firstName = (
+                                    <Errors errorText={'Prénom non valide'} />
+                                )
+                            }
+                            if (!values.lastName) {
+                                errors.lastName = (
+                                    <Errors
+                                        errorText={'Veuillez remplir ce champs'}
+                                    />
+                                )
+                            } else if (
+                                !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,20}$/i.test(
+                                    values.lastName
+                                )
+                            ) {
+                                errors.lastName = (
+                                    <Errors errorText={'Nom non valide'} />
+                                )
+                            }
+                            return errors
+                        }}
+                        onSubmit={(values, { setSubmitting }) => {
+                            this.updateProfile(values)
+                            setSubmitting(false)
+                        }}
+                    >
+                        {({
+                            values,
+                            errors,
+                            touched,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit,
+                            isSubmitting,
+                        }) => (
+                            <form
+                                className="flex flex-col justify-center p-4"
+                                onSubmit={handleSubmit}
+                            >
+                                <InputEmail
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.email}
                                 />
-                            )
-                        } else if (
-                            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-                                values.email
-                            )
-                        ) {
-                            errors.email = (
-                                <Errors
-                                    errorText={'Adresse email non valide'}
+                                {errors.email && touched.email && errors.email}
+                                <InputFirstName
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.firstName}
                                 />
-                            )
-                        }
-                        if (!values.firstName) {
-                            errors.firstName = (
-                                <Errors
-                                    errorText={'Veuillez remplir ce champs'}
+                                {errors.firstName &&
+                                    touched.firstName &&
+                                    errors.firstName}
+                                <InputLastName
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.lastName}
                                 />
-                            )
-                        } else if (
-                            !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,20}$/i.test(
-                                values.firstName
-                            )
-                        ) {
-                            errors.firstName = (
-                                <Errors errorText={'Prénom non valide'} />
-                            )
-                        }
-                        if (!values.lastName) {
-                            errors.lastName = (
-                                <Errors
-                                    errorText={'Veuillez remplir ce champs'}
+                                {errors.lastName &&
+                                    touched.lastName &&
+                                    errors.lastName}
+                                <InputAvatar
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.avatar}
                                 />
-                            )
-                        } else if (
-                            !/^[A-Za-z][^0-9_!¡?÷?¿+=@#$%ˆ&*¨(){}|~<>;:[\]]{1,20}$/i.test(
-                                values.lastName
-                            )
-                        ) {
-                            errors.lastName = (
-                                <Errors errorText={'Nom non valide'} />
-                            )
-                        }
-                        return errors
-                    }}
-                    onSubmit={(values, { setSubmitting }) => {
-                        this.updateProfile(values)
-                        setSubmitting(false)
-                    }}
-                >
-                    {({
-                        values,
-                        errors,
-                        touched,
-                        handleChange,
-                        handleBlur,
-                        handleSubmit,
-                        isSubmitting,
-                    }) => (
-                        <form
-                            className="flex flex-col justify-center p-4"
-                            onSubmit={handleSubmit}
-                        >
-                            <InputEmail
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.email}
-                            />
-                            {errors.email && touched.email && errors.email}
-                            <InputFirstName
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.firstName}
-                            />
-                            {errors.firstName &&
-                                touched.firstName &&
-                                errors.firstName}
-                            <InputLastName
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.lastName}
-                            />
-                            {errors.lastName &&
-                                touched.lastName &&
-                                errors.lastName}
-                            <InputAvatar
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.avatar}
-                            />
-                            <div className="flex justify-center pt-8">
-                                <LinkButton
-                                    to={`/profile/me`}
-                                    text="Annuler"
-                                    color="red"
-                                />
-                                <Button
-                                    type="submit"
-                                    text="Modifier le profil"
-                                    color="pink"
-                                    disabled={isSubmitting}
-                                />
-                            </div>
-                        </form>
-                    )}
-                </Formik>
+                                <div className="flex justify-center pt-8">
+                                    <LinkButton
+                                        to={`/profile/me`}
+                                        text="Annuler"
+                                        color="red"
+                                    />
+                                    <Button
+                                        type="submit"
+                                        text="Modifier le profil"
+                                        color="pink"
+                                        disabled={isSubmitting}
+                                    />
+                                </div>
+                            </form>
+                        )}
+                    </Formik>
+                </div>
             </div>
         )
     }
 }
 
 export default withPrivateRoute(UpdateProfile)
-// export default UpdateProfile

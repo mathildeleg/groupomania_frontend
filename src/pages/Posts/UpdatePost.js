@@ -30,8 +30,8 @@ class UpdatePost extends React.Component {
 
     render() {
         return (
-            <div className="bg-white dark:bg-blue h-screen flex items-center">
-                <div className="bg-pink dark:bg-pink-dark m-4 p-2 rounded-lg flex flex-col w-full">
+            <div className="bg-white dark:bg-pink-dark h-screen flex items-center">
+                <div className="bg-pink dark:bg-blue m-4 p-2 rounded-lg flex flex-col w-full">
                     <Formik
                         initialValues={{ post: '' }}
                         validate={(values) => {

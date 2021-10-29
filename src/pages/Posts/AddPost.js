@@ -21,8 +21,8 @@ class AddPost extends React.Component {
 
     render() {
         return (
-            <div className="bg-white dark:bg-blue h-screen flex items-center">
-                <div className="bg-pink dark:bg-pink-dark rounded-lg flex flex-col m-4 w-full">
+            <div className="bg-white dark:bg-pink-dark h-screen flex items-center">
+                <div className="bg-pink dark:bg-blue rounded-lg flex flex-col m-4 w-full">
                     <Formik
                         initialValues={{ post: '', image: '' }}
                         validate={(values) => {

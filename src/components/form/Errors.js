@@ -5,7 +5,7 @@ export default class Errors extends React.Component {
         const { errorText } = this.props;
       
         return (
-        <div className="text-sm bg-pink dark:bg-pink-dark text-red dark:text-blue lowercase font-semibold flex justify-end pr-4 m-2">{errorText}</div>
+        <div className="text-sm bg-pink dark:bg-blue text-red dark:text-pink-dark lowercase font-semibold flex justify-end pr-4 m-2">{errorText}</div>
       );
     }
   }
