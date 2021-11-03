@@ -15,3 +15,11 @@ export const customFetch = async (clientURLObject, JSONvalue) => {
             console.log(error);
         }
 }
+
+export const isTokenExpired = (token) => {
+    if(token == null){
+        return true
+    }
+    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
+    return (Math.floor((new Date()).getTime() / 1000)) >= expiry;
+}

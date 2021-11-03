@@ -8,6 +8,7 @@ import Errors from '../components/form/Errors'
 import { ClientURL } from '../helpers/clientURL'
 import AuthContext from '../helpers/AuthProvider'
 import { customFetch } from '../helpers/fetch'
+import { isTokenExpired } from '../helpers/fetch'
 
 export default class Login extends React.Component {
     static contextType = AuthContext
@@ -23,7 +24,8 @@ export default class Login extends React.Component {
 
     loginAndNavigate = (token) => {
         const { setToken } = this.context
-        if (token) {
+        const tokenExpiry = isTokenExpired(token);
+        if (!tokenExpiry) {
             setToken(token)
             this.props.history.push('/forum')
         }
