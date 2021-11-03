@@ -1,3 +1,4 @@
+// function for the format of dates of posts/comments ("... ago")
 export function timeAgo(input) {
     const date = input instanceof Date ? input : new Date(input)
     const formatter = new Intl.RelativeTimeFormat('fr')

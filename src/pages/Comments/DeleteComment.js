@@ -11,31 +11,42 @@ class DeleteComment extends React.Component {
         comment: null,
     }
 
+    // fetch comment 
     fetchComment = async () => {
+        // fetch post id
         const id = this.props.match.params.postId
+        // fetch comment id 
         const commentId = this.props.match.params.commentId
         const comment = await customFetch(
             ClientURL.Forum.fetchOneComment(id, commentId)
         )
+        // put comment in the state
         this.setState({ comment })
     }
 
+    // allow user to delete their comment
     deleteComment = async () => {
+        // fetch post id
         const id = this.props.match.params.postId
+        // fetch comment id
         const commentId = this.props.match.params.commentId
         const deleteComment = await customFetch(
             ClientURL.Forum.deleteComment(id, commentId)
         )
+        // redirect to post to see that the comment is deleted
         this.props.history.push(`/forum/post/${id}/comment`)
         return deleteComment
     }
 
+    // display the comment
     componentDidMount() {
         this.fetchComment()
     }
 
     render() {
+        // fetch post id
         const id = this.props.match.params.postId
+        // fetch comment id
         const commentId = this.props.match.params.commentId
         return (
             <div className="bg-white dark:bg-blue h-screen flex items-center">

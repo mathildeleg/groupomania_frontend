@@ -11,11 +11,13 @@ class Forum extends React.Component {
         post: [],
     }
 
+    // function to fetch all the posts
     fetchPosts = async () => {
         const post = await customFetch(ClientURL.Forum.forum())
         this.setState({ post })
     }
 
+    // display the posts
     componentDidMount() {
         this.fetchPosts()
     }

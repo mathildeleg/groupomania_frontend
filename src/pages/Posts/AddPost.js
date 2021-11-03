@@ -10,11 +10,14 @@ import LinkButton from '../../components/LinkButton'
 import Errors from '../../components/form/Errors'
 
 class AddPost extends React.Component {
+    // allow user to add a post
     addPost = async (data) => {
+        // allow user to add a post with a message and an image 
         const createPost = await customFetch(ClientURL.Forum.addPost(), {
             postMessage: data.post,
             imagePath: data.image,
         })
+        // redirect to forum so they can see their post
         this.props.history.push('/forum')
         return createPost
     }

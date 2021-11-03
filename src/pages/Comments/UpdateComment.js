@@ -9,20 +9,26 @@ import Errors from '../../components/form/Errors'
 import LinkButton from '../../components/LinkButton'
 
 class UpdateComment extends React.Component {
+    // fetch comment to allow user to update it
     updateComment = async (data) => {
+        // get post id
         const id = this.props.match.params.postId
+        // get comment id
         const commentId = this.props.match.params.commentId
+        // allow user to update comment
         const updatedComment = await customFetch(
             ClientURL.Forum.updateComment(id, commentId),
             {
                 commentMessage: data.comment,
             }
         )
+        // redirect to comment so that user can see it's been updated
         this.props.history.push(`/forum/post/${id}/comment/${commentId}`)
         return updatedComment
     }
 
     render() {
+        // get post id
         const id = this.props.match.params.postId
         return (
             <div className="bg-white dark:bg-pink-dark h-screen flex items-center">

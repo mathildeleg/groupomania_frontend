@@ -7,6 +7,8 @@ import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { faUsersCog } from '@fortawesome/free-solid-svg-icons'
 import AuthContext from '../helpers/AuthProvider'
 
+// create a component for the navbar (design-wise), that links to forum, profile page and allows user to log out
+
 export default class NavBar extends React.Component {
     static contextType = AuthContext
 

@@ -14,26 +14,35 @@ class PostWithComments extends React.Component {
         comment: [],
     }
 
+    // fetch post
     fetchPost = async () => {
+        // get post id
         const id = this.props.match.params.postId
+        // fetch post
         const post = await customFetch(ClientURL.Forum.post(id))
+        // put post in the state
         this.setState({ post })
     }
 
+    // fetch comments of a post
     fetchComments = async () => {
+        // get post id
         const id = this.props.match.params.postId
+        // fetch comments
         const { comment } = await customFetch(ClientURL.Forum.comment(id))
+        // put comments in the state
         this.setState({ comment })
     }
 
+    // display post and its comments
     componentDidMount() {
         this.fetchPost()
         this.fetchComments()
     }
 
     render() {
+        // get post id
         const postId = this.props.match.params.postId
-
         return (
             <div className="container h-auto bg-pink dark:bg-blue">
                 <div className="flex flex-row">

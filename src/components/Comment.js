@@ -3,6 +3,7 @@ import AuthContext from '../helpers/AuthProvider'
 import { timeAgo } from '../helpers/timeAgo'
 import LinkButton from './LinkButton'
 
+// create a component for comments (design-wise)
 export default class Comment extends React.Component {
     static contextType = AuthContext
 

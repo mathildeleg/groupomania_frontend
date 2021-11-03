@@ -3,6 +3,7 @@ import { Redirect, Route } from 'react-router-dom'
 import AuthContext from './AuthProvider';
 import { isTokenExpired } from './fetch';
 
+// check if token is expired or not and if there's a token, if there is then give access to forum, if not redirect to login page
 export default function withPrivateRoute(WrappedComponent) {
     return class extends React.Component {
         static contextType = AuthContext;
@@ -11,7 +12,6 @@ export default function withPrivateRoute(WrappedComponent) {
             const { token } = this.context
             const tokenExpiry = isTokenExpired(token);
             const { children, ...otherProps } = this.props;
-            console.log(tokenExpiry)
             return (
                 <Route
                     render={({ location }) =>

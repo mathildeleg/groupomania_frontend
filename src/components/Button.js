@@ -1,5 +1,6 @@
 import React from 'react'
 
+// create a component for buttons (design-wise)
 export default class Button extends React.Component {
     getColor = () => {
         switch (this.props.color) {

@@ -1,4 +1,4 @@
-
+// function for the beginning of the url with parameters
 const urlHelper = (suffixURL, method, shouldBeAuthenticated) => {
     const url = (() => {
         switch (process.env.CLIENT_URL) {
@@ -11,6 +11,7 @@ const urlHelper = (suffixURL, method, shouldBeAuthenticated) => {
     return { url : url + 'api/' + suffixURL, method, shouldBeAuthenticated };
 }
 
+// list of urls to fetch what's needed from the backend
 export const ClientURL = {
     Auth: {
         login: () => urlHelper('auth/login', 'POST', false),

@@ -1,5 +1,6 @@
 import React from "react";
 
+// create a component for inputs in forms (design-wise)
 export default class Input extends React.Component {
 
     render() {

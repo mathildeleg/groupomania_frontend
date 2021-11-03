@@ -6,8 +6,11 @@ import { Link } from 'react-router-dom'
 
 
 class DeleteProfile extends React.Component {
+    // allow user to delete their profile
     deleteProfile = async () => {
+    // allow user to delete their profile
         const deleteProfile = await customFetch(ClientURL.User.deleteProfile())
+        // thus removing their token
         localStorage.removeItem('token')
         return deleteProfile
     }

@@ -1,5 +1,6 @@
 import React from 'react'
 
+// create a component for profile (design-wise)
 export default class Profile extends React.Component {
     render() {
         const { avatar, firstName, lastName, email } = this.props

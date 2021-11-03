@@ -1,3 +1,4 @@
+// custom fetch 
 export const customFetch = async (clientURLObject, JSONvalue) => {
     const token = localStorage.getItem("token");
     const res = await fetch(clientURLObject.url, {
@@ -16,6 +17,7 @@ export const customFetch = async (clientURLObject, JSONvalue) => {
         }
 }
 
+// check if token is expired
 export const isTokenExpired = (token) => {
     if(token == null){
         return true

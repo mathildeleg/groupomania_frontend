@@ -10,11 +10,13 @@ class FetchAllProfiles extends React.Component {
         profile: [],
     }
 
+    // fetch all the profiles of signed up users
     fetchAllProfiles = async () => {
         const profile = await customFetch(ClientURL.Admin.fetchAllProfiles())
         this.setState({ profile })
     }
 
+    // display profiles
     componentDidMount() {
         this.fetchAllProfiles()
     }

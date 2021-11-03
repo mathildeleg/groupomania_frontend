@@ -12,7 +12,9 @@ import InputAvatar from '../../components/form/InputAvatar'
 import LinkButton from '../../components/LinkButton'
 
 class UpdateProfile extends React.Component {
+    // allow user to update their profile
     updateProfile = async (data) => {
+    // allow user to update their profile (not their password though)
         const updatedProfile = await customFetch(
             ClientURL.User.updateProfile(),
             {
@@ -22,6 +24,7 @@ class UpdateProfile extends React.Component {
                 avatar: data.avatar,
             }
         )
+        // redirect to their profile so they can see the changes
         this.props.history.push('/profile/me')
         return updatedProfile
     }

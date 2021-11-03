@@ -11,23 +11,28 @@ import Errors from '../components/form/Errors'
 import { ClientURL } from '../helpers/clientURL'
 import AuthContext from '../helpers/AuthProvider'
 import { customFetch } from '../helpers/fetch'
+import { isTokenExpired } from '../helpers/fetch'
 
 export default class Register extends React.Component {
     static contextType = AuthContext
 
+    // upon arriving on the page, put token into the local storage
     componentDidMount() {
         const token = localStorage.getItem('token')
         this.loginAndNavigate(token)
     }
 
+    // allow user to navigate if has token that isn't expired
     loginAndNavigate = (token) => {
         const { setToken } = this.context
-        if (token) {
+        const tokenExpiry = isTokenExpired(token);
+        if (!tokenExpiry) {
             setToken(token)
             this.props.history.push('/forum')
         }
     }
 
+    // register user and give token
     registerUser = async (data) => {
         // const { setToken } = this.context
         const dataToken = await customFetch(ClientURL.Auth.register(), {
@@ -39,7 +44,6 @@ export default class Register extends React.Component {
                 avatar: data.avatar,
             },
         })
-        console.log(dataToken)
         localStorage.setItem('token', dataToken.token)
         this.loginAndNavigate(dataToken.token)
     }

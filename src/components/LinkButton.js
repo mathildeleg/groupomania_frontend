@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// create a component for buttons that are links (design-wise)
 export default class LinkButton extends React.Component {
     getColor = () => {
         switch (this.props.color) {

@@ -3,6 +3,8 @@ import { customFetch } from '../helpers/fetch'
 import { ClientURL } from '../helpers/clientURL'
 import { Link } from 'react-router-dom'
 
+// create a component to have a list of all profiles for admin(s), that can also allow admin to delete a user
+
 export default class BackOffice extends React.Component {
     deleteUser = async () => {
         const userId = this.props.userId

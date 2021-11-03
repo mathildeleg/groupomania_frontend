@@ -1,5 +1,6 @@
 import React from "react";
 
+// create a component for errors in forms (design-wise)
 export default class Errors extends React.Component {
     render() {
         const { errorText } = this.props;

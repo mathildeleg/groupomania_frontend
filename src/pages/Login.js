@@ -17,11 +17,13 @@ export default class Login extends React.Component {
         error: null,
     }
 
+    // upon arriving on the page, put token into local storage
     componentDidMount() {
         const token = localStorage.getItem('token')
         this.loginAndNavigate(token)
     }
 
+    //  allow user to navigate if has token that isn't expired
     loginAndNavigate = (token) => {
         const { setToken } = this.context
         const tokenExpiry = isTokenExpired(token);
@@ -31,6 +33,7 @@ export default class Login extends React.Component {
         }
     }
 
+    // login user with fetch, if the email or password aren't valid then don't give token, otherwise put token into local storage
     loginUser = async (data) => {
         // const { setToken } = this.context
         const dataToken = await customFetch(ClientURL.Auth.login(), {

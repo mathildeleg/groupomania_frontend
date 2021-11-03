@@ -5,6 +5,7 @@ import LinkButton from './LinkButton'
 import LikePost from '../pages/Posts/LikePost'
 import AuthContext from '../helpers/AuthProvider'
 
+// create a component for post (design-wise) and that allows user to like a post
 export default class Post extends React.Component {
     static contextType = AuthContext
 

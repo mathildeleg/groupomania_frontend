@@ -8,18 +8,22 @@ class LikePost extends React.Component {
         liked: false,
     }
 
+    // allow user to like a post
     likePost = async () => {
         const { postId } = this.props
         await customFetch(ClientURL.Forum.likePost(postId))
+        // modify state to true
         this.setState({ liked: true })
     }
 
+    // check if user has liked the post or not
     hasLiked = async () => {
         const { postId } = this.props
         const hasLiked = await customFetch(ClientURL.Forum.hasLiked(postId))
         this.setState({ liked: hasLiked.data })
     }
 
+    // upon arriving on the page, check if user has liked the post or not
     componentDidMount() {
         this.hasLiked()
     }

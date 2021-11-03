@@ -9,21 +9,29 @@ import Errors from '../../components/form/Errors'
 import InputPost from '../../components/form/InputPost'
 
 class UpdatePost extends React.Component {
+    // allow user to update their post
     updatePost = async (data) => {
+        // get post id
         const id = this.props.match.params.postId
+        // allow user to update their message (but not the image)
         const updatedComment = await customFetch(
             ClientURL.Forum.updatePost(id),
             {
                 postMessage: data.post,
             }
         )
+        // redirect to forum so user can see their post has been updated
         this.props.history.push(`/forum`)
         return updatedComment
     }
 
+    // allow user to delete their post
     deletePost = async () => {
+        // get post id
         const id = this.props.match.params.postId
+        // allow user to delete their post
         const deletePost = await customFetch(ClientURL.Forum.deletePost(id))
+        // redirect to forum so user can see their post has been deleted
         this.props.history.push(`/forum`)
         return deletePost
     }

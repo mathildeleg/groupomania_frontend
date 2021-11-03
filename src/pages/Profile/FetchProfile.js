@@ -10,6 +10,7 @@ class FetchProfile extends React.Component {
     static contextType = AuthContext;
 
     render() {
+        // fetch profile from context
         const { profile } = this.context; 
         return (
             <div className="container h-auto bg-pink dark:bg-blue">
