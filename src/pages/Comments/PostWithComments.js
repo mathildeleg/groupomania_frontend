@@ -53,7 +53,7 @@ class PostWithComments extends React.Component {
                                 }
                                 likes={this.state.post.likesCount}
                                 image={this.state.post.contentImg}
-                                postId={this.state.post.postId}
+                                postId={postId}
                             />
                         ) : null}
                         {this.state.comment.map((comment, index) => (
