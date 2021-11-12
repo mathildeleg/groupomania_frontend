@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Link } from "react-router-dom";
 import LinkButton from '../components/LinkButton'
 import hero from '../assets/illustration.svg'
 export default class LandingPage extends React.Component {
