@@ -22,6 +22,7 @@ class FetchAllProfiles extends React.Component {
     }
 
     render() {
+        const { profile } = this.state;
         return (
             <div className="container h-auto bg-pink dark:bg-blue">
                 <div className="flex flex-row">
@@ -49,7 +50,7 @@ class FetchAllProfiles extends React.Component {
                                                 </th>
                                             </tr>
                                         </thead>
-                                        {this.state.profile.map(
+                                        {profile.map(
                                             (profile, index) => (
                                                 <BackOffice
                                                     key={`comment_${index}`}
