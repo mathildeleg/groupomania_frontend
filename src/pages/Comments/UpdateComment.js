@@ -9,12 +9,15 @@ import Errors from '../../components/form/Errors'
 import LinkButton from '../../components/LinkButton'
 
 class UpdateComment extends React.Component {
+    getPostId = () => this.props.match.params.postId; 
+    getCommentId = () => this.props.match.params.commentId;
+
     // fetch comment to allow user to update it
     updateComment = async (data) => {
         // get post id
-        const id = this.props.match.params.postId
+        const id = this.getPostId();
         // get comment id
-        const commentId = this.props.match.params.commentId
+        const commentId = this.getCommentId();
         // allow user to update comment
         const updatedComment = await customFetch(
             ClientURL.Forum.updateComment(id, commentId),
@@ -29,7 +32,7 @@ class UpdateComment extends React.Component {
 
     render() {
         // get post id
-        const id = this.props.match.params.postId
+        const id = this.getPostId();
         return (
             <div className="bg-white dark:bg-pink-dark h-screen flex items-center">
                 <div className="bg-pink dark:bg-blue m-4 rounded-lg flex flex-col w-full">

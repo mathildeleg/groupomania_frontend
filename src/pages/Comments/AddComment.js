@@ -9,10 +9,12 @@ import InputComment from '../../components/form/InputComment'
 import Errors from '../../components/form/Errors'
 
 class AddComment extends React.Component {
+    getPostId = () => this.props.match.params.postId; 
+
     // allow user to add a comment
     addComment = async (data) => {
         // fetch post id
-        const id = this.props.match.params.postId
+        const id = this.getPostId();
         const createComment = await customFetch(
             ClientURL.Forum.addComment(id),
             {
@@ -27,7 +29,7 @@ class AddComment extends React.Component {
 
     render() {
         // fetch post id 
-        const id = this.props.match.params.postId
+        const id = this.getPostId();
         return (
             <div className="bg-white dark:bg-pink-dark h-screen flex items-center">
                 <div className="bg-pink dark:bg-blue m-4 rounded-lg flex flex-col w-full">

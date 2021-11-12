@@ -11,12 +11,12 @@ class DeleteComment extends React.Component {
         comment: null,
     }
 
-    // fetch comment 
+    getPostId = () => this.props.match.params.postId; 
+    getCommentId = () => this.props.match.params.commentId; 
+
     fetchComment = async () => {
-        // fetch post id
-        const id = this.props.match.params.postId
-        // fetch comment id 
-        const commentId = this.props.match.params.commentId
+        const id = this.getPostId();
+        const commentId = this.getCommentId()
         const comment = await customFetch(
             ClientURL.Forum.fetchOneComment(id, commentId)
         )
@@ -26,10 +26,8 @@ class DeleteComment extends React.Component {
 
     // allow user to delete their comment
     deleteComment = async () => {
-        // fetch post id
-        const id = this.props.match.params.postId
-        // fetch comment id
-        const commentId = this.props.match.params.commentId
+        const id = this.getPostId();
+        const commentId = this.getCommentId()
         const deleteComment = await customFetch(
             ClientURL.Forum.deleteComment(id, commentId)
         )
@@ -44,18 +42,17 @@ class DeleteComment extends React.Component {
     }
 
     render() {
-        // fetch post id
-        const id = this.props.match.params.postId
-        // fetch comment id
-        const commentId = this.props.match.params.commentId
+        const id = this.getPostId()
+        const commentId = this.getCommentId()
+        const { comment } = this.state;
         return (
             <div className="bg-white dark:bg-blue h-screen flex items-center">
                 <div className="bg-pink dark:bg-blue m-4 p-2 rounded-lg flex flex-col w-full">
-                    {this.state.comment ? (
+                    {comment ? (
                         <Comment
-                            author={this.state.comment.author}
-                            comment={this.state.comment.commentMessage}
-                            date={this.state.comment.createdAt}
+                            author={comment.author}
+                            comment={comment.commentMessage}
+                            date={comment.createdAt}
                         />
                     ) : null}
                     <div className="flex flex-row justify-center">

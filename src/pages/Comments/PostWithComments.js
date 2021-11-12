@@ -14,10 +14,12 @@ class PostWithComments extends React.Component {
         comment: [],
     }
 
+    getPostId = () => this.props.match.params.postId; 
+
     // fetch post
     fetchPost = async () => {
         // get post id
-        const id = this.props.match.params.postId
+        const id = this.getPostId();
         // fetch post
         const post = await customFetch(ClientURL.Forum.post(id))
         // put post in the state
@@ -27,8 +29,8 @@ class PostWithComments extends React.Component {
     // fetch comments of a post
     fetchComments = async () => {
         // get post id
-        const id = this.props.match.params.postId
-        // fetch comments
+        const id = this.getPostId();
+        // fetch comments of that post
         const { comment } = await customFetch(ClientURL.Forum.comment(id))
         // put comments in the state
         this.setState({ comment })
@@ -42,30 +44,31 @@ class PostWithComments extends React.Component {
 
     render() {
         // get post id
-        const postId = this.props.match.params.postId
+        const postId = this.getPostId();
+        const { post, comment } = this.state;
         return (
             <div className="container h-auto bg-pink dark:bg-blue">
                 <div className="flex flex-row">
                     <NavBar />
                     <div className="flex flex-col flex-auto">
-                        {this.state.post ? (
+                        {post ? (
                             <Post
-                                user={this.state.post.author}
-                                userId={this.state.post.userId}
-                                date={this.state.post.createdAt}
-                                text={this.state.post.contentMessage}
-                                comments={this.state.post.commentsCount}
+                                user={post.author}
+                                userId={post.userId}
+                                date={post.createdAt}
+                                text={post.contentMessage}
+                                comments={post.commentsCount}
                                 commentsText={
-                                    this.state.post.commentsCount <= 1
+                                    post.commentsCount <= 1
                                         ? 'commentaire'
                                         : 'commentaires'
                                 }
-                                likes={this.state.post.likesCount}
-                                image={this.state.post.contentImg}
+                                likes={post.likesCount}
+                                image={post.contentImg}
                                 postId={postId}
                             />
                         ) : null}
-                        {this.state.comment.map((comment, index) => (
+                        {comment.map((comment, index) => (
                             <Comment
                                 key={`comment_${index}`}
                                 author={comment.author}
@@ -81,7 +84,6 @@ class PostWithComments extends React.Component {
                                 to={`/forum/post/${postId}/newcomment`}
                                 text="Ajouter un commentaire"
                                 color="red"
-                                otherProps="text-white flex justify-center"
                             />
                         </div>
                     </div>
