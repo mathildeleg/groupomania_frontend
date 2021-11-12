@@ -7,8 +7,7 @@ import InputPassword from '../components/form/InputPassword'
 import Errors from '../components/form/Errors'
 import { ClientURL } from '../helpers/clientURL'
 import AuthContext from '../helpers/AuthProvider'
-import { customFetch } from '../helpers/fetch'
-import { isTokenExpired } from '../helpers/fetch'
+import { customFetch, isTokenExpired } from '../helpers/fetch'
 
 export default class Login extends React.Component {
     static contextType = AuthContext
@@ -16,7 +15,7 @@ export default class Login extends React.Component {
     state = {
         error: null,
     }
-
+    
     // upon arriving on the page, put token into local storage
     componentDidMount() {
         const token = localStorage.getItem('token')
@@ -35,7 +34,6 @@ export default class Login extends React.Component {
 
     // login user with fetch, if the email or password aren't valid then don't give token, otherwise put token into local storage
     loginUser = async (data) => {
-        // const { setToken } = this.context
         const dataToken = await customFetch(ClientURL.Auth.login(), {
             email: data.email,
             password: data.password,
