@@ -18,7 +18,7 @@ class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
-                <div>
+                <div className="bg-pink dark:bg-blue flex justify-center">
                     <Switch>
                         <Route exact path="/" component={LandingPage}></Route>
                         <AuthProvider>
