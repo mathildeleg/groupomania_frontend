@@ -43,13 +43,13 @@ export default class LandingPage extends React.Component {
                     <LinkButton
                         to="/login"
                         text="Se connecter"
-                        color="pink"
+                        color="white"
                         textColor="red"
                     />
                     <LinkButton
                         to="/register"
                         text="S'inscrire"
-                        color="pink"
+                        color="white"
                         textColor="red"
                     />
                 </div>
