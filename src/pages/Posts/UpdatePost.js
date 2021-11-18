@@ -57,7 +57,7 @@ class UpdatePost extends React.Component {
         const { profile } = this.context
         return (
             <div className="bg-white dark:bg-pink-dark h-screen flex items-center">
-                <div className="bg-pink dark:bg-blue m-4 p-2 rounded-lg flex flex-col w-full">
+                <div className="bg-pink dark:bg-blue m-4 p-2 md:m-24 rounded-lg flex flex-col w-full">
                     <Formik
                         initialValues={{ post: '' }}
                         validate={(values) => {
@@ -86,7 +86,7 @@ class UpdatePost extends React.Component {
                             isSubmitting,
                         }) => (
                             <form
-                                className="flex flex-col justify-center p-4"
+                                className="flex flex-col justify-center p-4 md:p-14 md:pb-2"
                                 onSubmit={handleSubmit}
                             >
                                 <InputPost
@@ -97,7 +97,7 @@ class UpdatePost extends React.Component {
                                 {errors.post && touched.post && errors.post}
                                 <div className="flex justify-center">
                                     {profile.isAdmin === true ? (
-                                        <div className="flex flex-col justify-center pt-8">
+                                        <div className="flex flex-col justify-center pt-2">
                                             <Button
                                                 onClick={this.adminDeletePost}
                                                 text="Supprimer le post"
@@ -123,7 +123,7 @@ class UpdatePost extends React.Component {
                             </form>
                         )}
                     </Formik>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center md:pb-14">
                         <LinkButton
                             to={`/forum`}
                             text="Annuler"

@@ -25,7 +25,7 @@ class AddPost extends React.Component {
     render() {
         return (
             <div className="bg-white dark:bg-pink-dark h-screen flex items-center">
-                <div className="bg-pink dark:bg-blue rounded-lg flex flex-col m-4 w-full">
+                <div className="bg-pink dark:bg-blue rounded-lg flex flex-col m-4 md:m-24 w-full">
                     <Formik
                         initialValues={{ post: '', image: '' }}
                         validate={(values) => {
@@ -54,7 +54,7 @@ class AddPost extends React.Component {
                             isSubmitting,
                         }) => (
                             <form
-                                className="flex flex-col justify-center p-4"
+                                className="flex flex-col justify-center p-4 md:p-14"
                                 onSubmit={handleSubmit}
                             >
                                 <InputPost

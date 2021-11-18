@@ -32,7 +32,7 @@ class AddComment extends React.Component {
         const id = this.getPostId();
         return (
             <div className="bg-white dark:bg-pink-dark h-screen flex items-center">
-                <div className="bg-pink dark:bg-blue m-4 rounded-lg flex flex-col w-full">
+                <div className="bg-pink dark:bg-blue m-4 md:m-24 rounded-lg flex flex-col w-full">
                     <Formik
                         initialValues={{ comment: '' }}
                         validate={(values) => {
@@ -61,7 +61,7 @@ class AddComment extends React.Component {
                             isSubmitting,
                         }) => (
                             <form
-                                className="flex flex-col justify-center p-4"
+                                className="flex flex-col justify-center p-4 md:p-14"
                                 onSubmit={handleSubmit}
                             >
                                 <InputComment

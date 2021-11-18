@@ -63,7 +63,7 @@ class DeleteComment extends React.Component {
         const { profile } = this.context
         return (
             <div className="bg-white dark:bg-blue h-screen flex items-center">
-                <div className="bg-pink dark:bg-blue m-4 p-2 rounded-lg flex flex-col w-full">
+                <div className="bg-pink dark:bg-blue m-4 md:m-32 p-2 rounded-lg flex flex-col w-full">
                     {comment ? (
                         <Comment
                             author={comment.author}

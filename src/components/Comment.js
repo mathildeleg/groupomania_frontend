@@ -14,7 +14,7 @@ export default class Comment extends React.Component {
 
         return (
             <div className="flex bg-pink dark:bg-blue justify-end">
-                <div className="container rounded-xl bg-white dark:bg-pink-dark w-3/4 m-5 p-4">
+                <div className="container rounded-xl bg-white dark:bg-pink-dark w-3/4 m-5 md:m-10 p-4">
                     <div className="flex flex-row justify-between content-start">
                         <div className="flex flex-col justify-start pl-4">
                             <div className="text-red dark:text-blue">{author}</div>
