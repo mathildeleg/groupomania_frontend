@@ -44,7 +44,7 @@ class DeleteComment extends React.Component {
         const id = this.getPostId()
         const commentId = this.getCommentId()
         const deleteComment = await customFetch(
-            ClientURL.Admin.deleteComment(id, commentId)
+            ClientURL.Admin.deleteComment(commentId)
         )
         // redirect to post to see that the comment is deleted
         this.props.history.push(`/forum/post/${id}/comment`)

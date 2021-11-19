@@ -20,8 +20,8 @@ export const ClientURL = {
     Admin: {
         fetchAllProfiles: () => urlHelper('profile', 'GET', true),
         deleteUser: (userId) => urlHelper(`profile/${userId}`, 'DELETE', true),
-        deletePost: (id) => urlHelper(`forum/1/post/${id}`, 'DELETE', true),
-        deleteComment: (id, commentId) => urlHelper(`forum/1/post/${id}/comment/${commentId}`, 'DELETE', true)
+        deletePost: (id) => urlHelper(`/post/${id}`, 'DELETE', true),
+        deleteComment: (commentId) => urlHelper(`/comment/${commentId}`, 'DELETE', true)
     },
     User: {
         profile: () => urlHelper('profile/me', 'GET', true),

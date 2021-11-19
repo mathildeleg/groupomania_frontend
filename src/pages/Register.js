@@ -34,7 +34,6 @@ export default class Register extends React.Component {
 
     // register user and give token
     registerUser = async (data) => {
-        // const { setToken } = this.context
         const dataToken = await customFetch(ClientURL.Auth.register(), {
             userProfile: {
                 email: data.email,
