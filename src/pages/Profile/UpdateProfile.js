@@ -32,7 +32,7 @@ class UpdateProfile extends React.Component {
     render() {
         return (
             <div className="bg-white dark:bg-pink-dark h-screen flex justify-center items-center">
-                <div className="bg-pink dark:bg-blue h-3/4 rounded-lg flex flex-col justify-center items-center md:m-10">
+                <div className="bg-pink dark:bg-blue h-3/4 rounded-lg flex flex-col justify-center items-center md:m-10 m-4">
                     <Formik
                         initialValues={{
                             email: '',
